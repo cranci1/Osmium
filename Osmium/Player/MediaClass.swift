@@ -69,13 +69,14 @@ class VideoPlayerViewController: UIViewController, UIDocumentPickerDelegate {
 
         guard AVPictureInPictureController.isPictureInPictureSupported() else {
             print("PiP is not supported on this device.")
-            return
 
             let pipController = AVPictureInPictureController(playerLayer: AVPlayerLayer(player: player))
             pipController!.delegate = self
             pipController!.canStartPictureInPictureAutomaticallyFromInline = true
             pipController!.startPictureInPicture()
             self.pipController = pipController
+            
+            return
         }
     }
 

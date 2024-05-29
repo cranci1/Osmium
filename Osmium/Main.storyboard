@@ -472,6 +472,9 @@ You should have received a copy of the GNU Affero General Public License along w
                                     <backgroundConfiguration key="background" cornerRadius="7"/>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectVideoButtonPressed:" destination="yeX-7z-RzH" eventType="touchUpInside" id="dNY-9R-Jn0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bc5-r6-tgD"/>
