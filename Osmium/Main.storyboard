@@ -54,7 +54,7 @@
                                     <action selector="clearConsoleButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MKD-c3-Xib"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Imput media url" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujk-pq-NEM" userLabel="url field">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input media url" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujk-pq-NEM" userLabel="url field">
                                 <rect key="frame" x="57" y="554" width="300" height="40"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <color key="tintColor" name="AccentColor"/>
@@ -540,7 +540,7 @@ You should have received a copy of the GNU Affero General Public License along w
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="choose"/>
                                                     <connections>
-                                                        <action selector="presentPopupMenu:" destination="Gcj-HS-lZN" eventType="touchUpInside" id="KV5-1P-8Kf"/>
+                                                        <action selector="presentActionSheet:" destination="Gcj-HS-lZN" eventType="touchUpInside" id="Z81-Qv-bou"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -578,9 +578,6 @@ pick h264 if you want best compatibility.</string>
                                                         <segment title="vp9 (webm)"/>
                                                     </segments>
                                                     <color key="tintColor" name="AccentColor"/>
-                                                    <connections>
-                                                        <action selector="segmentedControlValueChanged:" destination="Gcj-HS-lZN" eventType="valueChanged" id="hBI-Ip-RX6"/>
-                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -896,7 +893,7 @@ Some services don’t support rich file names and always use the classic style.<
                                                         <constraint firstAttribute="width" constant="300" id="NL7-Cc-jec"/>
                                                     </constraints>
                                                     <segments>
-                                                        <segment title="calssic"/>
+                                                        <segment title="classic"/>
                                                         <segment title="basic"/>
                                                         <segment title="pretty"/>
                                                         <segment title="nerdy"/>

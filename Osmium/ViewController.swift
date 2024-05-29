@@ -38,7 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     deinit {
-        // Unregister from notifications
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -51,10 +50,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        // Calculate how much the view needs to move up
         let moveDistance = keyboardFrame.height / 2
 
-        // Move the entire view up
         UIView.animate(withDuration: duration) {
             self.view.frame.origin.y -= moveDistance
         }
@@ -66,13 +63,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        // Move the entire view back to its original position
         UIView.animate(withDuration: duration) {
             self.view.frame.origin.y = 0
         }
     }
 
-    // Choice listener
     @objc func selectedChoiceChanged(_ notification: Notification) {
         guard let selectedIndex = notification.object as? Int else { return }
         guard selectedIndex >= 0 && selectedIndex < choices.count else { return }
@@ -96,13 +91,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         self.writeToConsole("Starting process...")
         
-        // Save the URL from the text field to UserDefaults
         UserDefaults.standard.set(urlText, forKey: "url")
         
-        // Define the URL
         guard let url = URL(string: "https://api.cobalt.tools/api/json") else { return }
 
-        // Define request parameters based on UserDefaults values
         let requestBody: [String: Any] = [
             "url": getUserDefaultsValue(key: "url", defaultValue: "https://example.com/video"),
             "vCodec": getUserDefaultsValue(key: "vCodec", defaultValue: "h264"),
@@ -118,7 +110,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             "tiktokH265": getUserDefaultsValue(key: "tiktokH265", defaultValue: false)
         ]
         
-        // Print request body if debug is true
         if debug {
             writeToConsole("Request Body:")
             for (key, value) in requestBody {
@@ -126,7 +117,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        // Convert the request body to JSON data
         guard let jsonData = try? JSONSerialization.data(withJSONObject: requestBody) else {
             writeToConsole("Failed to serialize JSON data")
             showAlert(title: "Error", message: "Failed to process request")
