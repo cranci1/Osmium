@@ -1,0 +1,116 @@
+{
+  "images" : [
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (3).png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (4).png",
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (9)-1.png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (10).png",
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (1)-1.png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (2)-1.png",
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (2).png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "60x60"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (5).png",
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "size" : "60x60"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (11).png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (3)-1.png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (12).png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (9).png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (3)-2.png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (1).png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (8).png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "76x76"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (6).png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "76x76"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C (7).png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "83.5x83.5"
+    },
+    {
+      "filename" : "49E8AE71-134D-490A-8493-7623BE00697C.png",
+      "idiom" : "ios-marketing",
+      "scale" : "1x",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
