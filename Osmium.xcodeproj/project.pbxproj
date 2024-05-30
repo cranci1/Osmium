@@ -172,9 +172,6 @@
 				Base,
 			);
 			mainGroup = 13177F262C0645A800E4CECA;
-			packageReferences = (
-				137A738E2C08E81F00255254 /* XCRemoteSwiftPackageReference "ColorfulX" */,
-			);
 			productRefGroup = 13177F302C0645A900E4CECA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -427,17 +424,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		137A738E2C08E81F00255254 /* XCRemoteSwiftPackageReference "ColorfulX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Lakr233/ColorfulX.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 13177F272C0645A800E4CECA /* Project object */;
 }

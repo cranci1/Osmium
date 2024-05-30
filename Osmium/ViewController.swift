@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ColorfulX
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -23,21 +22,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Create a static gradient with gray background
-        let gradientView = MulticolorGradientView()
-        gradientView.parameters = .init(points: [
-            .init(color: .init(r: 0.5, g: 0.5, b: 0.5), position: .init(x: 0, y: 0)), // Dark gray
-            .init(color: .init(r: 0.75, g: 0.75, b: 0.75), position: .init(x: 1, y: 0)), // Light gray
-            .init(color: .init(r: 0.5, g: 0.5, b: 0.5), position: .init(x: 0, y: 1)), // Dark gray
-            .init(color: .init(r: 0.75, g: 0.75, b: 0.75), position: .init(x: 1, y: 1)) // Light gray
-        ], bias: 0.01, power: 2, noise: 32)
-        
-        // Add the gradient view to the main view
-        gradientView.frame = self.view.bounds
-        gradientView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.addSubview(gradientView)
-        self.view.sendSubviewToBack(gradientView)
         
         consoleTextView.text = "Console Output:"
         consoleTextView.layer.cornerRadius = 16
