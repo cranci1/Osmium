@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var debug = UserDefaults.standard.bool(forKey: "debugPlease")
     
+    var saveMedia = UserDefaults.standard.bool(forKey: "saveMedia")
+    
     let choices = ["max", "2160", "1440", "1080", "720", "480", "360", "240", "144"]
     
     override func viewDidLoad() {
@@ -35,6 +37,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSaveMedia(_:)), name: Notification.Name("sSaveMedia"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDebug(_:)), name: Notification.Name("dDebugPlease"), object: nil)
     }
     
     deinit {
@@ -142,10 +147,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
+            if self.debug {
+                if let responseString = String(data: data, encoding: .utf8) {
+                    self.writeToConsole("Response: \(responseString)")
+                } else {
+                    self.writeToConsole("Unable to convert response data to string")
+                }
+            }
+            
             if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let status = json["status"] as? String,
                let mediaURLString = json["url"] as? String {
-                self.openURLInSafari(urlString: mediaURLString)
-                self.writeToConsole("Opening link...")
+                if status == "redirect" {
+                    if self.saveMedia {
+                        self.saveMediaToGallery(urlString: mediaURLString)
+                    } else {
+                        self.openURLInSafari(urlString: mediaURLString)
+                    }
+                    self.writeToConsole("Saving media...")
+                } else if status == "stream" {
+                    self.openURLInSafari(urlString: mediaURLString)
+                    self.writeToConsole("Opening link...")
+                } else {
+                    self.writeToConsole("Unexpected status in response")
+                    self.showAlert(title: "Error", message: "Unexpected status in response")
+                }
             } else {
                 self.writeToConsole("Error parsing JSON or extracting media URL from response")
                 self.showAlert(title: "Error", message: "Failed to parse response")
@@ -178,53 +204,53 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
+
     func saveMediaToGallery(urlString: String) {
-         guard let url = URL(string: urlString) else {
-             writeToConsole("Invalid URL")
-             return
-         }
-         
-         let session = URLSession.shared
-         let task = session.dataTask(with: url) { (data, response, error) in
-             if let error = error {
-                 self.writeToConsole("Error: \(error.localizedDescription)")
-                 return
-             }
-             
-             guard let data = data else {
-                 self.writeToConsole("No data received")
-                 return
-             }
-             
-             if let contentType = response?.mimeType {
-                 if contentType.hasPrefix("image") {
-                     if let image = UIImage(data: data) {
-                         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                         self.writeToConsole("Image saved to gallery successfully")
-                         self.showAlert(title: "Success", message: "Media saved to gallery successfully")
-                     } else {
-                         self.writeToConsole("Unable to create image from data")
-                     }
-                 } else if contentType.hasPrefix("video") {
-                     let tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("video.mp4")
-                     do {
-                         try data.write(to: tempURL)
-                         UISaveVideoAtPathToSavedPhotosAlbum(tempURL.path, nil, nil, nil)
-                         self.writeToConsole("Video saved to gallery successfully")
-                         self.showAlert(title: "Success", message: "Media saved to gallery successfully")
-                     } catch {
-                         self.writeToConsole("Error saving video to gallery: \(error)")
-                     }
-                 } else {
-                     self.writeToConsole("Unsupported content type: \(contentType)")
-                 }
-             } else {
-                 self.writeToConsole("Unknown content type")
-             }
-         }
-         task.resume()
-     }
+        guard let url = URL(string: urlString) else {
+            writeToConsole("Invalid URL")
+            return
+        }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                self.writeToConsole("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                self.writeToConsole("No data received")
+                return
+            }
+            
+            if let contentType = response?.mimeType {
+                if contentType.hasPrefix("image") {
+                    if let image = UIImage(data: data) {
+                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                        self.writeToConsole("Image saved to gallery successfully")
+                        self.showAlert(title: "Success", message: "Media saved to gallery successfully")
+                    } else {
+                        self.writeToConsole("Unable to create image from data")
+                    }
+                } else if contentType.hasPrefix("video") {
+                    let tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("video.mp4")
+                    do {
+                        try data.write(to: tempURL)
+                        UISaveVideoAtPathToSavedPhotosAlbum(tempURL.path, nil, nil, nil)
+                        self.writeToConsole("Video saved to gallery successfully")
+                        self.showAlert(title: "Success", message: "Media saved to gallery successfully")
+                    } catch {
+                        self.writeToConsole("Error saving video to gallery: \(error)")
+                    }
+                } else {
+                    self.writeToConsole("Unsupported content type: \(contentType)")
+                }
+            } else {
+                self.writeToConsole("Unknown content type")
+            }
+        }
+        task.resume()
+    }
     
     func writeToConsole(_ messages: Any...) {
         DispatchQueue.main.async {

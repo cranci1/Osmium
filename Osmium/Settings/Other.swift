@@ -37,7 +37,9 @@ class Other: UITableViewController {
     }
     
     @IBAction func switchDebug(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "debugPlease")
+        let isEnabled = sender.isOn
+        UserDefaults.standard.set(isEnabled, forKey: "debugPlease")
+        NotificationCenter.default.post(name: Notification.Name("dDebugPlease"), object: nil, userInfo: ["debugPlease": isEnabled])
     }
 
     @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {

@@ -10,9 +10,13 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UserDefaults.standard.register(defaults: ["saveMedia": true])
+        UserDefaults.standard.register(defaults: ["twitterGif": true])
+        UserDefaults.standard.register(defaults: ["tiktokH265": true])
+        UserDefaults.standard.register(defaults: ["isTTFullAudio": true])
+        
         // Override point for customization after application launch.
         return true
     }

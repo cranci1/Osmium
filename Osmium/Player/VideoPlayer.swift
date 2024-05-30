@@ -8,8 +8,9 @@
 import UIKit
 import AVKit
 import MobileCoreServices
+import PhotosUI
 
-class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerDelegate {
+class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var videoView: UIView!
     
@@ -23,6 +24,41 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
     }
     
     @IBAction func selectVideoButtonPressed(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Select Media", message: "Choose a source to select a video", preferredStyle: .actionSheet)
+        
+        let galleryIcon = UIImage(systemName: "photo.on.rectangle")
+        let documentIcon = UIImage(systemName: "doc")
+        
+        let galleryAction = UIAlertAction(title: "Gallery", style: .default) { _ in
+            self.presentImagePicker()
+        }
+        galleryAction.setValue(galleryIcon, forKey: "image")
+        
+        let documentAction = UIAlertAction(title: "Documents", style: .default) { _ in
+            self.presentDocumentPicker()
+        }
+        documentAction.setValue(documentIcon, forKey: "image")
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(galleryAction)
+        alertController.addAction(documentAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func presentImagePicker() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.mediaTypes = [kUTTypeMovie as String]
+            imagePickerController.sourceType = .photoLibrary
+            present(imagePickerController, animated: true, completion: nil)
+        }
+    }
+    
+    func presentDocumentPicker() {
         let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.movie], asCopy: true)
         documentPicker.delegate = self
         documentPicker.modalPresentationStyle = .formSheet
@@ -71,19 +107,5 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
         pipController!.delegate = self
         pipController!.canStartPictureInPictureAutomaticallyFromInline = true
         pipController!.startPictureInPicture()
-    }
-}
-
-extension VideoPlayerViewController: UIDocumentPickerDelegate {
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        guard let url = urls.first else { return }
-        dismiss(animated: true, completion: nil)
-        
-        videoURL = url
-        playVideo()
-    }
-    
-    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        dismiss(animated: true, completion: nil)
     }
 }

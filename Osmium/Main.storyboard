@@ -578,17 +578,50 @@ You should have received a copy of the GNU Affero General Public License along w
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection footerTitle="Save the video in the photo gallery if possible" id="hPH-W3-exU" userLabel="meida">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nLE-D9-BGU">
+                                        <rect key="frame" x="20" y="151" width="388" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nLE-D9-BGU" id="3Fk-Vo-EIV">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefer Save to Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmF-l3-znO">
+                                                    <rect key="frame" x="15" y="13" width="148" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dcY-98-yQh">
+                                                    <rect key="frame" x="329" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <color key="onTintColor" name="AccentColor"/>
+                                                    <connections>
+                                                        <action selector="switchSaveVideo:" destination="Gcj-HS-lZN" eventType="valueChanged" id="aFb-Yh-iPn"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dcY-98-yQh" firstAttribute="trailing" secondItem="3Fk-Vo-EIV" secondAttribute="trailing" constant="-10" id="BP6-H3-dBb"/>
+                                                <constraint firstItem="hmF-l3-znO" firstAttribute="leading" secondItem="3Fk-Vo-EIV" secondAttribute="leading" constant="15" id="CPn-vh-QpY"/>
+                                                <constraint firstItem="dcY-98-yQh" firstAttribute="centerY" secondItem="3Fk-Vo-EIV" secondAttribute="centerY" id="c3M-yK-Xpu"/>
+                                                <constraint firstItem="hmF-l3-znO" firstAttribute="centerY" secondItem="3Fk-Vo-EIV" secondAttribute="centerY" id="gnk-6f-MI4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="youtube codec" id="uPH-xq-cAH">
-                                <string key="footerTitle">h264: best support across apps/platforms, average detail level. max quality is 1080p.            
+                                <string key="footerTitle">h264: best support across apps/platforms, average detail level. max quality is 1080p           
 
-av1: best quality, small file size, most detail. supports 8k &amp; HDR.
+av1: best quality, small file size, most detail. supports 8k &amp; HDR
 
-vp9: same quality as av1, but file is x2 bigger. supports 4k &amp; HDR.
+vp9: same quality as av1, but file is x2 bigger. supports 4k &amp; HDR
 
-pick h264 if you want best compatibility.</string>
+pick h264 if you want best compatibility</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vjv-WG-jTX">
-                                        <rect key="frame" x="20" y="172" width="388" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="260.00000190734863" width="388" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vjv-WG-jTX" id="RnQ-vP-wJ4">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
@@ -613,10 +646,10 @@ pick h264 if you want best compatibility.</string>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Twitter" id="6j6-N0-re8">
-                                <string key="footerTitle">Converting looping videos to .gif reduces quality and majorly increases file size. if you want best efficiency, keep this setting off.</string>
+                                <string key="footerTitle">Converting looping videos to .gif reduces quality and majorly increases file size. if you want best efficiency, keep this setting off</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FOg-OC-AGh">
-                                        <rect key="frame" x="20" y="407.00000190734863" width="388" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="495.00000381469727" width="388" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FOg-OC-AGh" id="WO6-mD-EdV">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
@@ -646,10 +679,10 @@ pick h264 if you want best compatibility.</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="TikTok" footerTitle="Download 1080p videos from tiktok in h265/hevc format when available." id="w6a-Nw-MmI">
+                            <tableViewSection headerTitle="TikTok" footerTitle="Download 1080p videos from tiktok in h265/hevc format when available" id="w6a-Nw-MmI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="onc-U5-8hN">
-                                        <rect key="frame" x="20" y="544.00000381469727" width="388" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="632.0000057220459" width="388" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onc-U5-8hN" id="B62-Fk-Oq3">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
@@ -689,6 +722,7 @@ pick h264 if you want best compatibility.</string>
                     <connections>
                         <outlet property="Quality" destination="EDb-SH-mAt" id="59Q-1s-6Qs"/>
                         <outlet property="codecControll" destination="wAW-gh-Gbu" id="w5x-IC-0MW"/>
+                        <outlet property="saveMedias" destination="dcY-98-yQh" id="3g2-3T-f0H"/>
                         <outlet property="tiktok" destination="GEr-bG-QrL" id="jrT-YT-RBn"/>
                         <outlet property="twitter" destination="hts-eG-7lY" id="ZhE-JB-eRg"/>
                     </connections>
@@ -706,7 +740,7 @@ pick h264 if you want best compatibility.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection headerTitle="Format" id="zid-CL-9e7">
-                                <string key="footerTitle">When "best" format is selected, you get audio the way it is on service's side. it's not re-encoded. everything else will be re-encoded.</string>
+                                <string key="footerTitle">When "best" format is selected, you get audio the way it is on service's side. it's not re-encoded. everything else will be re-encoded</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EuH-rr-aiq">
                                         <rect key="frame" x="20" y="49" width="388" height="43.666667938232422"/>
@@ -894,15 +928,15 @@ pick h264 if you want best compatibility.</string>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="File name style" id="aXX-qG-b1h">
-                                <string key="footerTitle">classic: default cobalt file name pattern.
+                                <string key="footerTitle">classic: default cobalt file name pattern
 
-basic: title and basic info in brackets.
+basic: title and basic info in brackets
 
-pretty: title and info in brackets.
+pretty: title and info in brackets
 
-nerdy: title and all info in brackets.
+nerdy: title and all info in brackets
 
-Some services don’t support rich file names and always use the classic style.</string>
+Some services don’t support rich file names and always use the classic style</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="D6D-ui-I04">
                                         <rect key="frame" x="20" y="149.66666793823242" width="388" height="43.666667938232422"/>
@@ -966,7 +1000,7 @@ Some services don’t support rich file names and always use the classic style.<
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Experimental" footerTitle="Please restart the app after cleaning." id="Z3D-5l-1AE">
+                            <tableViewSection headerTitle="Experimental" footerTitle="Please restart the app after cleaning" id="Z3D-5l-1AE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ICw-j2-t9v">
                                         <rect key="frame" x="20" y="478.00000381469727" width="388" height="43.666667938232422"/>

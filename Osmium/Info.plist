@@ -26,5 +26,9 @@
 		<string>audio</string>
 		<string>remote-notification</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>The photo Library Addition is required to save media.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access to the photo library is needed to play videos.</string>
 </dict>
 </plist>
