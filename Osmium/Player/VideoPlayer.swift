@@ -1,5 +1,5 @@
 //
-//  MediaClass.swift
+//  VideoPlayer.swift
 //  Osmium
 //
 //  Created by Francesco on 29/05/24.
@@ -9,7 +9,7 @@ import UIKit
 import AVKit
 import MobileCoreServices
 
-class VideoPlayerViewController: UIViewController {
+class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerDelegate {
     
     @IBOutlet weak var videoView: UIView!
     
@@ -85,19 +85,5 @@ extension VideoPlayerViewController: UIDocumentPickerDelegate {
     
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-extension VideoPlayerViewController: AVPictureInPictureControllerDelegate {
-    func pictureInPictureControllerDidStartPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
-        print("PiP started")
-    }
-    
-    func pictureInPictureControllerWillStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
-        print("PiP will stop")
-    }
-    
-    func pictureInPictureControllerDidStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
-        print("PiP stopped")
     }
 }

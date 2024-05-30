@@ -17,7 +17,7 @@
 		13177F4E2C0645FF00E4CECA /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13177F4B2C0645FF00E4CECA /* Other.swift */; };
 		13177F4F2C0645FF00E4CECA /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13177F4C2C0645FF00E4CECA /* Video.swift */; };
 		13177F512C06460500E4CECA /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13177F502C06460500E4CECA /* AboutPage.swift */; };
-		13177F542C07547900E4CECA /* MediaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13177F532C07547900E4CECA /* MediaClass.swift */; };
+		13177F542C07547900E4CECA /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13177F532C07547900E4CECA /* VideoPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		13177F4B2C0645FF00E4CECA /* Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
 		13177F4C2C0645FF00E4CECA /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		13177F502C06460500E4CECA /* AboutPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
-		13177F532C07547900E4CECA /* MediaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaClass.swift; sourceTree = "<group>"; };
+		13177F532C07547900E4CECA /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		13177F522C07546D00E4CECA /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				13177F532C07547900E4CECA /* MediaClass.swift */,
+				13177F532C07547900E4CECA /* VideoPlayer.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13177F4D2C0645FF00E4CECA /* Audio.swift in Sources */,
-				13177F542C07547900E4CECA /* MediaClass.swift in Sources */,
+				13177F542C07547900E4CECA /* VideoPlayer.swift in Sources */,
 				13177F4F2C0645FF00E4CECA /* Video.swift in Sources */,
 				13177F372C0645A900E4CECA /* ViewController.swift in Sources */,
 				13177F332C0645A900E4CECA /* AppDelegate.swift in Sources */,
@@ -331,6 +331,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -360,6 +361,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;

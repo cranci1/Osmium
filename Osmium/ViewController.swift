@@ -123,14 +123,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        // Create the request
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
         
-        // Perform the request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 self.writeToConsole("Error: \(error)")
@@ -144,7 +142,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            // Handle the response
             if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
                let mediaURLString = json["url"] as? String {
                 self.openURLInSafari(urlString: mediaURLString)
@@ -164,6 +161,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         DispatchQueue.main.async {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            self.writeToConsole("Done!")
         }
     }
 

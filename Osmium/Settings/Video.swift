@@ -12,7 +12,7 @@ class Video: UITableViewController {
     @IBOutlet weak var Quality: UIButton!
     
     var isPresentingActionSheet = false
-    var selectedQualityIndex = 4
+    var selectedQualityIndex = 5
     let choices = ["8k+", "4k", "1440p", "1080p", "720p", "480p", "360p", "240p", "144p"]
     
     @IBOutlet weak var codecControll: UISegmentedControl!
