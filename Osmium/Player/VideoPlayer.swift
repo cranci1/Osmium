@@ -67,22 +67,38 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
     
     func playVideo() {
         guard let videoURL = videoURL else { return }
-        
-        let asset = AVAsset(url: videoURL)
-        let playerItem = AVPlayerItem(asset: asset)
-        player = AVPlayer(playerItem: playerItem)
-        
-        playerViewController = AVPlayerViewController()
-        playerViewController?.player = player
-        
-        if let playerView = playerViewController?.view {
-            playerView.frame = videoView.bounds
-            videoView.addSubview(playerView)
+
+        let asset = AVURLAsset(url: videoURL)
+        let playableKey = "playable"
+
+        asset.loadValuesAsynchronously(forKeys: [playableKey]) {
+            var error: NSError? = nil
+            let status = asset.statusOfValue(forKey: playableKey, error: &error)
+
+            switch status {
+            case .loaded:
+                DispatchQueue.main.async {
+                    let playerItem = AVPlayerItem(asset: asset)
+                    self.player = AVPlayer(playerItem: playerItem)
+
+                    self.playerViewController = AVPlayerViewController()
+                    self.playerViewController?.player = self.player
+
+                    if let playerView = self.playerViewController?.view {
+                        playerView.frame = self.videoView.bounds
+                        self.videoView.addSubview(playerView)
+                    }
+
+                    self.player?.play()
+                    self.setupAudioSessionForPlayback()
+                    self.enablePiP()
+                }
+            case .failed:
+                print("Failed to load video: \(error?.localizedDescription ?? "Unknown Error")")
+            default:
+                print("Unknown status")
+            }
         }
-        
-        player?.play()
-        setupAudioSessionForPlayback()
-        enablePiP()
     }
     
     func setupAudioSessionForPlayback() {
