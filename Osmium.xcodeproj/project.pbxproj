@@ -18,6 +18,9 @@
 		13177F4F2C0645FF00E4CECA /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13177F4C2C0645FF00E4CECA /* Video.swift */; };
 		13177F512C06460500E4CECA /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13177F502C06460500E4CECA /* AboutPage.swift */; };
 		13177F542C07547900E4CECA /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13177F532C07547900E4CECA /* VideoPlayer.swift */; };
+		135C0FAB2C10E0E300177744 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C0FAA2C10E0E300177744 /* Request.swift */; };
+		135C0FAE2C10E17B00177744 /* GallerySaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C0FAD2C10E17B00177744 /* GallerySaver.swift */; };
+		135C0FB02C10E18300177744 /* URLSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C0FAF2C10E18300177744 /* URLSaver.swift */; };
 		1369A3C32C08ACE700C7E7B7 /* Save-Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369A3C22C08ACE700C7E7B7 /* Save-Debug.swift */; };
 		1369A3C52C08AD7800C7E7B7 /* PlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369A3C42C08AD7800C7E7B7 /* PlayerExtension.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,9 @@
 		13177F4C2C0645FF00E4CECA /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		13177F502C06460500E4CECA /* AboutPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
 		13177F532C07547900E4CECA /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		135C0FAA2C10E0E300177744 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		135C0FAD2C10E17B00177744 /* GallerySaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySaver.swift; sourceTree = "<group>"; };
+		135C0FAF2C10E18300177744 /* URLSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSaver.swift; sourceTree = "<group>"; };
 		1369A3C22C08ACE700C7E7B7 /* Save-Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Save-Debug.swift"; sourceTree = "<group>"; };
 		1369A3C42C08AD7800C7E7B7 /* PlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,9 +80,10 @@
 				1369A3C02C08ACCA00C7E7B7 /* Extensions */,
 				13177F522C07546D00E4CECA /* Player */,
 				13177F482C0645ED00E4CECA /* Settings */,
+				135C0FA92C10E0D300177744 /* Functions */,
 				13177F322C0645A900E4CECA /* AppDelegate.swift */,
-				13177F342C0645A900E4CECA /* SceneDelegate.swift */,
 				13177F362C0645A900E4CECA /* ViewController.swift */,
+				13177F342C0645A900E4CECA /* SceneDelegate.swift */,
 				13177F462C0645D600E4CECA /* Main.storyboard */,
 				13177F3B2C0645AA00E4CECA /* Assets.xcassets */,
 				13177F3D2C0645AA00E4CECA /* LaunchScreen.storyboard */,
@@ -110,6 +117,32 @@
 				13177F532C07547900E4CECA /* VideoPlayer.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		135C0FA92C10E0D300177744 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				135C0FB12C10E22700177744 /* Request */,
+				135C0FAC2C10E16B00177744 /* Saving Methods */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		135C0FAC2C10E16B00177744 /* Saving Methods */ = {
+			isa = PBXGroup;
+			children = (
+				135C0FAD2C10E17B00177744 /* GallerySaver.swift */,
+				135C0FAF2C10E18300177744 /* URLSaver.swift */,
+			);
+			path = "Saving Methods";
+			sourceTree = "<group>";
+		};
+		135C0FB12C10E22700177744 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				135C0FAA2C10E0E300177744 /* Request.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		1369A3C02C08ACCA00C7E7B7 /* Extensions */ = {
@@ -202,12 +235,15 @@
 				13177F4D2C0645FF00E4CECA /* Audio.swift in Sources */,
 				13177F542C07547900E4CECA /* VideoPlayer.swift in Sources */,
 				1369A3C52C08AD7800C7E7B7 /* PlayerExtension.swift in Sources */,
+				135C0FB02C10E18300177744 /* URLSaver.swift in Sources */,
 				13177F4F2C0645FF00E4CECA /* Video.swift in Sources */,
 				13177F372C0645A900E4CECA /* ViewController.swift in Sources */,
+				135C0FAE2C10E17B00177744 /* GallerySaver.swift in Sources */,
 				1369A3C32C08ACE700C7E7B7 /* Save-Debug.swift in Sources */,
 				13177F332C0645A900E4CECA /* AppDelegate.swift in Sources */,
 				13177F512C06460500E4CECA /* AboutPage.swift in Sources */,
 				13177F4E2C0645FF00E4CECA /* Other.swift in Sources */,
+				135C0FAB2C10E0E300177744 /* Request.swift in Sources */,
 				13177F352C0645A900E4CECA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

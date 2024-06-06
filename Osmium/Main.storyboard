@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -54,8 +55,8 @@
                                     <action selector="clearConsoleButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MKD-c3-Xib"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input media url" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujk-pq-NEM" userLabel="url field">
-                                <rect key="frame" x="64" y="556" width="300" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="insert media url" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujk-pq-NEM" userLabel="url field">
+                                <rect key="frame" x="64" y="546" width="300" height="40"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
@@ -67,14 +68,18 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pR-dD-w1f">
-                                <rect key="frame" x="114" y="616" width="200" height="40"/>
+                                <rect key="frame" x="114" y="606" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xxv-Nd-cLd"/>
                                     <constraint firstAttribute="width" constant="200" id="qc0-RG-w5Z" userLabel="width = 150"/>
                                 </constraints>
                                 <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="arrow.down.circle.fill" catalog="system" title="Download Media" imagePadding="4" cornerStyle="large"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Download Media" imagePadding="4" cornerStyle="large">
+                                    <imageReference key="image" image="arrow.down.circle.fill" catalog="system" symbolScale="large"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="sendRequestButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NCR-el-lP4"/>
                                 </connections>
@@ -84,7 +89,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2pR-dD-w1f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Lr-ZR-iwy"/>
-                            <constraint firstItem="ujk-pq-NEM" firstAttribute="top" secondItem="MRo-fP-cjh" secondAttribute="bottom" constant="70" id="Exu-0D-Bzq"/>
+                            <constraint firstItem="ujk-pq-NEM" firstAttribute="top" secondItem="MRo-fP-cjh" secondAttribute="bottom" constant="60" id="Exu-0D-Bzq"/>
                             <constraint firstItem="MRo-fP-cjh" firstAttribute="top" secondItem="3XZ-nk-U5Y" secondAttribute="bottom" constant="5" id="Fyk-gk-qQZ"/>
                             <constraint firstItem="ujk-pq-NEM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uvq-tG-IH8"/>
                             <constraint firstItem="fag-SC-Ao6" firstAttribute="leading" secondItem="cvw-wg-h52" secondAttribute="leading" id="XUx-rS-qjG"/>
@@ -475,16 +480,16 @@ You should have received a copy of the GNU Affero General Public License along w
                                 <color key="tintColor" name="AccentColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                 <state key="normal" title="Select Media" image="play.rectangle.fill" catalog="system"/>
-                                <buttonConfiguration key="configuration" style="plain" image="play.rectangle.fill" catalog="system" title="Select Media" imagePadding="4">
+                                <buttonConfiguration key="configuration" style="plain" title="Select Media" imagePadding="4">
+                                    <imageReference key="image" image="play.circle.fill" catalog="system" symbolScale="large"/>
                                     <backgroundConfiguration key="background" cornerRadius="8">
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="selectVideoButtonPressed:" destination="yeX-7z-RzH" eventType="touchUpInside" id="hLJ-Dy-QRw"/>
-                                    <action selector="sendRequestButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jum-7w-83Y"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hh7-LG-L6d">
@@ -505,7 +510,7 @@ You should have received a copy of the GNU Affero General Public License along w
                             <constraint firstItem="hh7-LG-L6d" firstAttribute="centerX" secondItem="45J-SP-Owr" secondAttribute="centerX" id="nrB-Ul-eeH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Media Player" image="play.rectangle.on.rectangle.fill" catalog="system" id="uDi-9L-Rif"/>
+                    <tabBarItem key="tabBarItem" title="Media Player" image="play.circle.fill" catalog="system" id="uDi-9L-Rif"/>
                     <connections>
                         <outlet property="videoView" destination="hh7-LG-L6d" id="Uep-3X-Hkh"/>
                     </connections>
@@ -578,7 +583,10 @@ You should have received a copy of the GNU Affero General Public License along w
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Save the video in the photo gallery if possible" id="hPH-W3-exU" userLabel="meida">
+                            <tableViewSection id="hPH-W3-exU" userLabel="meida">
+                                <string key="footerTitle">Save the video in the photo gallery if possible. 
+
+Note that this process will be longer based on the size of the media.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nLE-D9-BGU">
                                         <rect key="frame" x="20" y="151" width="388" height="43.666667938232422"/>
@@ -587,8 +595,8 @@ You should have received a copy of the GNU Affero General Public License along w
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefer Save to Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmF-l3-znO">
-                                                    <rect key="frame" x="15" y="13" width="148" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save to Library if possible" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmF-l3-znO">
+                                                    <rect key="frame" x="15" y="13" width="176.33333333333334" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -621,7 +629,7 @@ vp9: same quality as av1, but file is x2 bigger. supports 4k &amp; HDR
 pick h264 if you want best compatibility</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vjv-WG-jTX">
-                                        <rect key="frame" x="20" y="260.00000190734863" width="388" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="302.00000190734863" width="388" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vjv-WG-jTX" id="RnQ-vP-wJ4">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
@@ -649,7 +657,7 @@ pick h264 if you want best compatibility</string>
                                 <string key="footerTitle">Converting looping videos to .gif reduces quality and majorly increases file size. if you want best efficiency, keep this setting off</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FOg-OC-AGh">
-                                        <rect key="frame" x="20" y="495.00000381469727" width="388" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="537.00000381469727" width="388" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FOg-OC-AGh" id="WO6-mD-EdV">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
@@ -682,7 +690,7 @@ pick h264 if you want best compatibility</string>
                             <tableViewSection headerTitle="TikTok" footerTitle="Download 1080p videos from tiktok in h265/hevc format when available" id="w6a-Nw-MmI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="onc-U5-8hN">
-                                        <rect key="frame" x="20" y="632.0000057220459" width="388" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="674.0000057220459" width="388" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onc-U5-8hN" id="B62-Fk-Oq3">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
@@ -1108,7 +1116,6 @@ Some services don’t support rich file names and always use the classic style</
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <image name="play.rectangle.fill" catalog="system" width="128" height="93"/>
-        <image name="play.rectangle.on.rectangle.fill" catalog="system" width="128" height="97"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <image name="speaker.wave.2.fill" catalog="system" width="128" height="90"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
