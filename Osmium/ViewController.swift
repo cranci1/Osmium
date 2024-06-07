@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var consoleTextView: UITextView!
     @IBOutlet weak var clearConsoleButton: UIButton!
+    @IBOutlet weak var downloadProgressLabel: UILabel!
     
     var debug = UserDefaults.standard.bool(forKey: "debugPlease")
     var saveMedia = UserDefaults.standard.bool(forKey: "saveMedia")

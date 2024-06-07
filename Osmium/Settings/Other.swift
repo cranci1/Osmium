@@ -89,26 +89,4 @@ class Other: UITableViewController {
             break
         }
     }
-    
-    @IBAction func deleteTemporaryDirectory(_ sender: Any) {
-        let alertController = UIAlertController(title: "Clear 'tmp' folder", message: "Are you sure you want to clear the 'tmp' folder?", preferredStyle: .alert)
-        let fileManager = FileManager.default
-        let tempDir = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-        
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        alertController.addAction(UIAlertAction(title: "Clear", style: .destructive, handler: { _ in
-            do {
-                let contents = try fileManager.contentsOfDirectory(at: tempDir, includingPropertiesForKeys: nil, options: [])
-                for file in contents {
-                    try fileManager.removeItem(at: file)
-                }
-            } catch {
-                print("Error clearing temporary directory: \(error.localizedDescription)")
-            }
-        }))
-        
-        present(alertController, animated: true, completion: nil)
-    }
-
 }

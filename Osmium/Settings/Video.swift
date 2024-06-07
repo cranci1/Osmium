@@ -19,7 +19,6 @@ class Video: UITableViewController {
     
     @IBOutlet weak var twitter: UISwitch!
     @IBOutlet weak var tiktok: UISwitch!
-    @IBOutlet weak var saveMedias: UISwitch!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +27,6 @@ class Video: UITableViewController {
         
         twitter.isOn = UserDefaults.standard.bool(forKey: "twitterGif")
         tiktok.isOn = UserDefaults.standard.bool(forKey: "tiktokH265")
-        saveMedias.isOn = UserDefaults.standard.bool(forKey: "saveMedia")
-        
         let selectedIndexCodec = UserDefaults.standard.integer(forKey: "selectedIndexCodec")
         codecControll.selectedSegmentIndex = selectedIndexCodec
         
@@ -40,12 +37,6 @@ class Video: UITableViewController {
     
     @IBAction func switchTwitter(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "twitterGif")
-    }
-    
-    @IBAction func switchSaveVideo(_ sender: UISwitch) {
-        let isEnabled = sender.isOn
-        UserDefaults.standard.set(isEnabled, forKey: "saveMedia")
-        NotificationCenter.default.post(name: Notification.Name("sSaveMedia"), object: nil, userInfo: ["saveMedia": isEnabled])
     }
     
     @IBAction func switchTikTok(_ sender: UISwitch) {

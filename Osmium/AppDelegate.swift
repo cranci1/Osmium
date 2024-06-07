@@ -41,17 +41,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func deleteTemporaryDirectory() {
         let fileManager = FileManager.default
-        let tempDir = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+        let tmpURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
         
         do {
-            let contents = try fileManager.contentsOfDirectory(at: tempDir, includingPropertiesForKeys: nil, options: [])
-            for file in contents {
-                try fileManager.removeItem(at: file)
+            let tmpContents = try fileManager.contentsOfDirectory(at: tmpURL, includingPropertiesForKeys: nil, options: [])
+            
+            for fileURL in tmpContents {
+                try fileManager.removeItem(at: fileURL)
             }
         } catch {
-            print("Error clearing temporary directory: \(error.localizedDescription)")
+            print("Error clearing tmp folder: \(error.localizedDescription)")
         }
     }
-
 }
 

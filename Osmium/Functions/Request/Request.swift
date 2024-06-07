@@ -97,17 +97,14 @@ extension ViewController {
                 }
                 
                 switch status {
-                case "redirect":
+                case "redirect", "stream":
                     if self.saveMedia {
-                        self.saveMediaToGallery(urlString: mediaURLString)
+                        self.saveMediaToTempFolder(urlString: mediaURLString)
+                        self.writeToConsole("Saving media to temp folder...")
                     } else {
                         self.openURLInSafari(urlString: mediaURLString)
+                        self.writeToConsole("Opening link...")
                     }
-                    self.writeToConsole("Saving media...")
-                    
-                case "stream":
-                    self.openURLInSafari(urlString: mediaURLString)
-                    self.writeToConsole("Opening link...")
                     
                 default:
                     self.writeToConsole("Unexpected status in response")

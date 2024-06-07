@@ -1,5 +1,5 @@
 //
-//  URLSaver.swift
+//  URLOpener.swift
 //  Osmium
 //
 //  Created by Francesco on 05/06/24.

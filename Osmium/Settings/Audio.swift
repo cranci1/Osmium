@@ -56,7 +56,7 @@ class Audio: UITableViewController {
         case 4:
             aFormat = "opus"
         default:
-            aFormat = "h264"
+            aFormat = "best"
         }
         
         UserDefaults.standard.set(selectedIndexFormat, forKey: "selectedIndexFormat")
