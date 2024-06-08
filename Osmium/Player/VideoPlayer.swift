@@ -15,8 +15,8 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
     @IBOutlet weak var videoView: UIView!
     
     var player: AVPlayer?
-    var playerViewController: AVPlayerViewController?
     var videoURL: URL?
+    var playerViewController: AVPlayerViewController?
     var pipController: AVPictureInPictureController?
     
     override func viewDidLoad() {
