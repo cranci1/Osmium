@@ -1,50 +1,69 @@
-# Osmium
+<div align="center">
+  
+[![Build and Release IPA](https://github.com/cranci1/Osmium/actions/workflows/swift.yml/badge.svg)](https://github.com/cranci1/Osmium/actions/workflows/swift.yml)
+[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.2%2B-orange?logo=apple&logoColor=white)](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.2%2B-red?logo=apple&logoColor=white)
+[![Version](https://custom-icon-badges.demolab.com/github/v/release/cranci1/osmium)](https://custom-icon-badges.demolab.com/github/v/release/cranci1/osmium)
+[![Commit](https://custom-icon-badges.demolab.com/github/last-commit/cranci1/Osmium)](https://custom-icon-badges.demolab.com/github/last-commit/cranci1/Osmium)
 
-Osmium is an iOS mobile client for Cobalt, compatible with iOS 14.2 and later.
+A free iOS mobile client to download publicly accessible items from various known platforms.
+</div>
 
-## What is Osmium?
+## Table of Contents
 
-Osmium is a free app developed in Swift that allows users to download publicly accessible items from various known platforms.
+- [Compatibility](#compatibility)
+- [Supported Platforms](#supported-platforms)
+- [Disclaimer](#disclaimer)
+- [Acknowledgements](#acknowledgements)
 
-Osmium utilizes the [Cobalt API](https://github.com/imputnet/cobalt), which facilitates the downloading of media content.
+## Compatibility
+
+**Osmium** is designed to support every device running iOS/iPadOS 14.2 or later.
+
+> Note: The user experience may vary depending on the specific device model and its performance capabilities, and is heavily influenced by the network download speed!
 
 ## Disclaimer
-As mentioned in the [Cobalt API Repository](https://github.com/imputnet/cobalt?tab=readme-ov-file#ethics-and-disclaimer):
+
+As stated in the [Cobalt API Repository](https://github.com/imputnet/cobalt?tab=readme-ov-file#ethics-and-disclaimer):
+
 ```
 Cobalt is NOT a piracy tool and cannot be used as such.
 It can only download free, publicly accessible content.
 Such content can be easily downloaded through any browser's dev tools.
 ```
 
-## Supported Services
+Therefore, **Osmium** is not a piracy tool and will never be used as one.
 
-This list is not final and keeps expanding over time. If support for a service you want is missing, create an issue (or a pull request 👀).
+## Supported Platforms
+
+**Osmium** supports any platform supported by the [Cobalt API](https://github.com/imputnet/cobalt?tab=readme-ov-file#supported-services). Below is a list of supported services:
 
 | Service                        | Video + Audio | Only Audio | Only Video | Metadata | Rich File Names |
 | :----------------------------- | :-----------: | :--------: | :--------: | :------: | :-------------: |
-| bilibili.com & bilibili.tv     |       ✅       |     ✅     |     ✅     |    ➖    |       ➖        |
-| Dailymotion                    |       ✅       |     ✅     |     ✅     |    ✅    |       ✅        |
-| Instagram Posts & Reels        |       ✅       |     ✅     |     ✅     |    ➖    |       ➖        |
-| Loom                           |       ✅       |     ❌     |     ✅     |    ✅    |       ➖        |
-| OK Video                       |       ✅       |     ❌     |     ✅     |    ✅    |       ✅        |
-| Pinterest                      |       ✅       |     ✅     |     ✅     |    ➖    |       ➖        |
-| Reddit                         |       ✅       |     ✅     |     ✅     |    ❌    |       ❌        |
-| Rutube                         |       ✅       |     ✅     |     ✅     |    ✅    |       ✅        |
-| SoundCloud                     |       ➖       |     ✅     |     ➖     |    ✅    |       ✅        |
-| Streamable                     |       ✅       |     ✅     |     ✅     |    ➖    |       ➖        |
-| TikTok                         |       ✅       |     ✅     |     ✅     |    ❌    |       ❌        |
-| Tumblr                         |       ✅       |     ✅     |     ✅     |    ➖    |       ➖        |
-| Twitch Clips                   |       ✅       |     ✅     |     ✅     |    ✅    |       ✅        |
-| Twitter/X                      |       ✅       |     ✅     |     ✅     |    ➖    |       ➖        |
-| Vimeo                          |       ✅       |     ✅     |     ✅     |    ✅    |       ✅        |
-| Vine Archive                   |       ✅       |     ✅     |     ✅     |    ➖    |       ➖        |
-| VK Videos & Clips              |       ✅       |     ❌     |     ✅     |    ✅    |       ✅        |
-| YouTube Videos, Shorts & Music |       ✅       |     ✅     |     ✅     |    ✅    |       ✅        |
+| bilibili.com & bilibili.tv     | ✅            | ✅         | ✅         | ➖        | ➖              |
+| dailymotion                    | ✅            | ✅         | ✅         | ✅        | ✅              |
+| instagram posts & reels        | ✅            | ✅         | ✅         | ➖        | ➖              |
+| loom                           | ✅            | ❌         | ✅         | ✅        | ➖              |
+| ok video                       | ✅            | ❌         | ✅         | ✅        | ✅              |
+| pinterest                      | ✅            | ✅         | ✅         | ➖        | ➖              |
+| reddit                         | ✅            | ✅         | ✅         | ❌        | ❌              |
+| rutube                         | ✅            | ✅         | ✅         | ✅        | ✅              |
+| soundcloud                     | ➖            | ✅         | ➖         | ✅        | ✅              |
+| streamable                     | ✅            | ✅         | ✅         | ➖        | ➖              |
+| tiktok                         | ✅            | ✅         | ✅         | ❌        | ❌              |
+| tumblr                         | ✅            | ✅         | ✅         | ➖        | ➖              |
+| twitch clips                   | ✅            | ✅         | ✅         | ✅        | ✅              |
+| twitter/x                      | ✅            | ✅         | ✅         | ➖        | ➖              |
+| vimeo                          | ✅            | ✅         | ✅         | ✅        | ✅              |
+| vine archive                   | ✅            | ✅         | ✅         | ➖        | ➖              |
+| vk videos & clips              | ✅            | ❌         | ✅         | ✅        | ✅              |
+| youtube videos, shorts & music | ✅            | ✅         | ✅         | ✅        | ✅              |
 
 | Emoji   | Meaning                 |
 | :-----: | :---------------------- |
-|    ✅   | Supported               |
-|    ➖   | Impossible/Unreasonable |
-|    ❌   | Not Supported           |
+| ✅      | Supported               |
+| ➖      | Impossible/Unreasonable  |
+| ❌      | Not Supported           |
 
-Source: [Cobalt API Repository](https://github.com/imputnet/cobalt)
+## Acknowledgements
+
+**Osmium** would not exist without the help of the Cobalt API. Special thanks to the developer and creator of the Cobalt API, [imput](https://github.com/imputnet).
