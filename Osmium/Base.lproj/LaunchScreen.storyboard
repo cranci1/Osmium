@@ -16,9 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauncherBG" translatesAutoresizingMaskIntoConstraints="NO" id="gJu-f0-esg">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cr8-B9-9eG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GU1-zY-i7g">
@@ -32,20 +29,20 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Osmium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocs-Qm-f8J">
-                                                        <rect key="frame" x="126.5" y="406" width="161.5" height="54"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                        <rect key="frame" x="117.5" y="403" width="179" height="60"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="save what you love" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fka-Ri-sei">
-                                                        <rect key="frame" x="150" y="455" width="114.5" height="16"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <rect key="frame" x="131.5" y="452.5" width="151.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cranci" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8p-cL-ivZ">
-                                                        <rect key="frame" x="183.5" y="847" width="47" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="182.5" y="847" width="49" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -60,7 +57,7 @@
                                                 </constraints>
                                             </view>
                                             <vibrancyEffect>
-                                                <blurEffect style="systemThinMaterialDark"/>
+                                                <blurEffect style="systemThickMaterialDark"/>
                                             </vibrancyEffect>
                                         </visualEffectView>
                                     </subviews>
@@ -78,13 +75,9 @@
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Cr8-B9-9eG" firstAttribute="leading" secondItem="FAF-Cf-ciH" secondAttribute="leading" id="GcB-1y-7Tu"/>
-                            <constraint firstAttribute="bottom" secondItem="gJu-f0-esg" secondAttribute="bottom" id="HvF-32-UQZ"/>
                             <constraint firstAttribute="trailing" secondItem="Cr8-B9-9eG" secondAttribute="trailing" id="NdI-OU-XrJ"/>
                             <constraint firstAttribute="bottom" secondItem="Cr8-B9-9eG" secondAttribute="bottom" id="WON-Gb-BVt"/>
                             <constraint firstItem="Cr8-B9-9eG" firstAttribute="top" secondItem="FAF-Cf-ciH" secondAttribute="top" id="r5c-At-gSR"/>
-                            <constraint firstItem="gJu-f0-esg" firstAttribute="top" secondItem="FAF-Cf-ciH" secondAttribute="top" id="rO6-d3-dTz"/>
-                            <constraint firstItem="gJu-f0-esg" firstAttribute="leading" secondItem="FAF-Cf-ciH" secondAttribute="leading" id="tp3-V6-sv7"/>
-                            <constraint firstAttribute="trailing" secondItem="gJu-f0-esg" secondAttribute="trailing" id="v07-qG-RpK"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -93,7 +86,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="LauncherBG" width="3456" height="5184"/>
-    </resources>
 </document>
