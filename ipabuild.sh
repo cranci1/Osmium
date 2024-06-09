@@ -13,7 +13,7 @@ fi
 
 cd build
 
-xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
+xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME/$APPLICATION_NAME.xcodeproj" \
     -scheme "$APPLICATION_NAME" \
     -configuration Release \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedDataApp" \
