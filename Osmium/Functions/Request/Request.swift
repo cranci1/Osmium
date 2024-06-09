@@ -39,7 +39,6 @@ extension ViewController {
             "isAudioOnly": getUserDefaultsValue(key: "isAudioOnly", defaultValue: false),
             "isTTFullAudio": getUserDefaultsValue(key: "isTTFullAudio", defaultValue: false),
             "isAudioMuted": getUserDefaultsValue(key: "isAudioMuted", defaultValue: false),
-            "dubLang": getUserDefaultsValue(key: "dubLang", defaultValue: false),
             "disableMetadata": getUserDefaultsValue(key: "disableMetadata", defaultValue: false),
             "twitterGif": getUserDefaultsValue(key: "twitterGif", defaultValue: false),
             "tiktokH265": getUserDefaultsValue(key: "tiktokH265", defaultValue: false)
