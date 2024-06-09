@@ -142,8 +142,8 @@
 		13177F522C07546D00E4CECA /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				1369A3C42C08AD7800C7E7B7 /* PlayerExtension.swift */,
 				13177F532C07547900E4CECA /* VideoPlayer.swift */,
+				1369A3C42C08AD7800C7E7B7 /* PlayerExtension.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
