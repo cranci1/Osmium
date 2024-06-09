@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/cranci1/Osmium/main/assets/Untitled.png">
+
 <div align="center">
   
 [![Build and Release IPA](https://github.com/cranci1/Osmium/actions/workflows/swift.yml/badge.svg)](https://github.com/cranci1/Osmium/actions/workflows/swift.yml)
