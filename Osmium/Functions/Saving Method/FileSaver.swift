@@ -16,7 +16,7 @@ extension ViewController: URLSessionDownloadDelegate {
             return
         }
         
-        let sessionConfig = URLSessionConfiguration.default
+        let sessionConfig = URLSessionConfiguration.background(withIdentifier: "me.sobet.osmium.background")
         let session = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: nil)
         
         let task = session.downloadTask(with: url)
@@ -60,6 +60,8 @@ extension ViewController: URLSessionDownloadDelegate {
                     self.downloadProgressLabel.isHidden = true
                 }
             }
+            scheduleNotification()
+            
         } catch {
             self.writeToConsole("Error saving media: \(error.localizedDescription)")
             self.showAlert(title: "Error", message: "Failed to save media")
@@ -87,4 +89,20 @@ extension ViewController: URLSessionDownloadDelegate {
             }
         }
     }
+    
+    private func scheduleNotification() {
+         let content = UNMutableNotificationContent()
+         content.title = "Download Complete"
+         content.body = "Your media file has been downloaded. It's time to save it!"
+         content.sound = .default
+
+         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+         UNUserNotificationCenter.current().add(request) { error in
+             if let error = error {
+                 print("Notification error: \(error.localizedDescription)")
+             }
+         }
+     }
 }

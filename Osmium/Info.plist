@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSUserNotificationUsageDescription</key>
+	<string>We need to send you notifications to inform you when your media download is complete.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -23,8 +25,9 @@
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>processing</string>
 		<string>audio</string>
+		<string>fetch</string>
+		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>

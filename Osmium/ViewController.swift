@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -22,6 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestNotificationPermission()
         
         consoleTextView.text = "Console Output:"
         consoleTextView.layer.cornerRadius = 16
@@ -46,6 +48,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func requestNotificationPermission() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("Notification permission error: \(error.localizedDescription)")
+            } else {
+                print("Notification permission granted: \(granted)")
+            }
+        }
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
