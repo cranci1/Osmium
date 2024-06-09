@@ -5,7 +5,7 @@
 [![Version](https://custom-icon-badges.demolab.com/github/v/release/cranci1/osmium)](https://custom-icon-badges.demolab.com/github/v/release/cranci1/osmium)
 [![Commit](https://custom-icon-badges.demolab.com/github/last-commit/cranci1/Osmium)](https://custom-icon-badges.demolab.com/github/last-commit/cranci1/Osmium)
 
-**Osmium** - A free iOS mobile client to download publicly accessible items from various known platforms.
+A free iOS mobile client to download publicly accessible items from various known platforms.
 </div>
 
 ## Table of Contents
