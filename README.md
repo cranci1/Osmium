@@ -19,7 +19,7 @@ A free iOS mobile client to download publicly accessible items from various know
 
 ## Compatibility
 
-**Osmium** is designed to support every device running iOS/iPadOS 14.2 or later.
+Osmium is designed to support every device running iOS/iPadOS 14.2 or later.
 
 > Note: The user experience may vary depending on the specific device model and its performance capabilities, and is heavily influenced by the network download speed!
 
@@ -33,7 +33,7 @@ It can only download free, publicly accessible content.
 Such content can be easily downloaded through any browser's dev tools.
 ```
 
-Therefore, **Osmium** is not a piracy tool and will never be used as one.
+Therefore, Osmium **is not a piracy tool** and will never be used as one.
 
 ## Supported Platforms
 
@@ -68,4 +68,4 @@ Therefore, **Osmium** is not a piracy tool and will never be used as one.
 
 ## Acknowledgements
 
-**Osmium** would not exist without the help of the Cobalt API. Special thanks to the developer and creator of the Cobalt API, [imput](https://github.com/imputnet).
+Osmium would not exist without the help of the **Cobalt** API. Special thanks to the developer and creator of the Cobalt API, [imput](https://github.com/imputnet).
