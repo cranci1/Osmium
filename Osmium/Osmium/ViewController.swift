@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var debug = UserDefaults.standard.bool(forKey: "debugPlease")
     var saveMedia = UserDefaults.standard.bool(forKey: "saveMedia")
     
+    let userDefaultsKeyForSharing = "shouldShareMedia"
     let choices = ["max", "2160", "1440", "1080", "720", "480", "360", "240", "144"]
     
     override func viewDidLoad() {

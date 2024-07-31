@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import UserNotifications
 
 extension ViewController: URLSessionDownloadDelegate {
     
-    func saveMediaToTempFolder(urlString: String) {
+    func saveMediaToDocumentsFolder(urlString: String) {
         guard let url = URL(string: urlString) else {
             writeToConsole("Invalid media URL")
             showAlert(title: "Error", message: "Invalid media URL")
@@ -23,49 +24,43 @@ extension ViewController: URLSessionDownloadDelegate {
         task.resume()
     }
     
-    func randomizedFileName(from originalName: String) -> String {
-        let randomString = UUID().uuidString
-        let fileExtension = (originalName as NSString).pathExtension
-        return "\(randomString).\(fileExtension)"
-    }
-    
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        guard let response = downloadTask.response else {
-            writeToConsole("No response")
+        guard let response = downloadTask.response as? HTTPURLResponse,
+              let url = downloadTask.originalRequest?.url else {
+            writeToConsole("No response or invalid URL")
             showAlert(title: "Error", message: "Failed to download media")
             return
         }
         
-        let url = downloadTask.originalRequest?.url
+        let fileManager = FileManager.default
+        let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileName = response.suggestedFilename ?? url.lastPathComponent
+        let destinationURL = documentsDirectory.appendingPathComponent(fileName)
+        
+        let shouldShareMedia = UserDefaults.standard.bool(forKey: userDefaultsKeyForSharing)
+        
         do {
-            let tempDirectory = FileManager.default.temporaryDirectory
-            let fileName = response.suggestedFilename ?? self.randomizedFileName(from: url?.lastPathComponent ?? "unknown")
-            var tempURL = tempDirectory.appendingPathComponent(fileName)
-            
-            var count = 1
-            let fileManager = FileManager.default
-            while fileManager.fileExists(atPath: tempURL.path) {
-                let newName = "\(tempURL.deletingPathExtension().lastPathComponent)-\(count).\(tempURL.pathExtension)"
-                tempURL = tempDirectory.appendingPathComponent(newName)
-                count += 1
-            }
-            
-            try fileManager.moveItem(at: location, to: tempURL)
-            self.writeToConsole("Media saved to: \(tempURL.path)")
-            self.openShareView(with: tempURL)
-            
-            DispatchQueue.main.async {
-                self.downloadProgressLabel.text = "Download complete!"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    self.downloadProgressLabel.isHidden = true
+            if shouldShareMedia {
+                writeToConsole("File ready for sharing: \(destinationURL.path)")
+                openShareView(with: location)
+            } else {
+                if fileManager.fileExists(atPath: destinationURL.path) {
+                    try fileManager.removeItem(at: destinationURL)
                 }
+                try fileManager.moveItem(at: location, to: destinationURL)
+                writeToConsole("File saved to: \(destinationURL.path)")
+                
+                DispatchQueue.main.async {
+                    self.downloadProgressLabel.text = "Download complete!"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        self.downloadProgressLabel.isHidden = true
+                    }
+                }
+                scheduleNotification()
             }
-            scheduleNotification()
-            
         } catch {
-            self.writeToConsole("Error saving media: \(error.localizedDescription)")
-            self.showAlert(title: "Error", message: "Failed to save media")
-            self.clearTmpFolder()
+            writeToConsole("Error handling media: \(error.localizedDescription)")
+            showAlert(title: "Error", message: "Failed to handle media")
         }
     }
     
@@ -91,18 +86,18 @@ extension ViewController: URLSessionDownloadDelegate {
     }
     
     private func scheduleNotification() {
-         let content = UNMutableNotificationContent()
-         content.title = "Download Complete"
-         content.body = "Your media file has been downloaded. It's time to save it!"
-         content.sound = .default
+        let content = UNMutableNotificationContent()
+        content.title = "Download Complete"
+        content.body = "Your media file has been downloaded. It's time to save it!"
+        content.sound = .default
 
-         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 
-         UNUserNotificationCenter.current().add(request) { error in
-             if let error = error {
-                 print("Notification error: \(error.localizedDescription)")
-             }
-         }
-     }
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                self.writeToConsole("Notification error: \(error.localizedDescription)")
+            }
+        }
+    }
 }

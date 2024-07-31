@@ -7,17 +7,15 @@
 
 import UIKit
 import AVKit
-import MobileCoreServices
-import PhotosUI
 
 class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerDelegate {
     
     @IBOutlet weak var videoView: UIView!
     
-    var player: AVPlayer?
-    var playerViewController: AVPlayerViewController?
-    var videoURL: URL?
-    var pipController: AVPictureInPictureController?
+    private var player: AVPlayer?
+    private var playerViewController: AVPlayerViewController?
+    private var videoURL: URL?
+    private var pipController: AVPictureInPictureController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,7 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
     }
     
     private func presentMediaSelectionActionSheet() {
-        let alertController = UIAlertController(title: "Select Media", message: "Choose a source to select a video, av1 and vp9 are not supported yet!", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Select Media", message: "Choose a source to select a video. AV1 and VP9 are not supported yet.", preferredStyle: .actionSheet)
         
         let galleryAction = UIAlertAction(title: "Gallery", style: .default) { _ in
             self.presentImagePicker()
@@ -46,7 +44,7 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
         alertController.addAction(documentAction)
         alertController.addAction(cancelAction)
         
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
     
     private func presentImagePicker() {
@@ -57,16 +55,16 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        imagePickerController.mediaTypes = [kUTTypeMovie as String]
+        imagePickerController.mediaTypes = ["public.movie"]
         imagePickerController.sourceType = .photoLibrary
-        present(imagePickerController, animated: true, completion: nil)
+        present(imagePickerController, animated: true)
     }
     
     private func presentDocumentPicker() {
-        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.movie], asCopy: true)
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.movie], asCopy: true)
         documentPicker.delegate = self
         documentPicker.modalPresentationStyle = .formSheet
-        present(documentPicker, animated: true, completion: nil)
+        present(documentPicker, animated: true)
     }
     
     private func playVideo() {
@@ -100,7 +98,10 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
         let playerItem = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: playerItem)
         
-        playerViewController = AVPlayerViewController()
+        if playerViewController == nil {
+            playerViewController = AVPlayerViewController()
+        }
+        
         playerViewController?.player = player
         
         if let playerView = playerViewController?.view {
@@ -116,7 +117,7 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
     private func setupAudioSessionForPlayback() {
         do {
             let audioSession = AVAudioSession.sharedInstance()
-            try audioSession.setCategory(.playback, mode: .moviePlayback, options: [])
+            try audioSession.setCategory(.playback, mode: .moviePlayback)
             try audioSession.setActive(true)
         } catch {
             showAlert(title: "Error", message: "Error setting audio session: \(error.localizedDescription)")
@@ -136,22 +137,20 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
     }
     
     func replaceCurrentVideo(with url: URL) {
-        if let playerViewController = self.playerViewController {
-            playerViewController.willMove(toParent: nil)
-            playerViewController.view.removeFromSuperview()
-            playerViewController.removeFromParent()
-            self.player?.pause()
-            self.player = nil
-        }
+        playerViewController?.willMove(toParent: nil)
+        playerViewController?.view.removeFromSuperview()
+        playerViewController?.removeFromParent()
+        player?.pause()
+        player = nil
         
-        self.videoURL = url
-        self.playVideo()
+        videoURL = url
+        playVideo()
     }
     
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
 }

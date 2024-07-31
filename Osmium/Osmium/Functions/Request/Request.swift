@@ -15,17 +15,15 @@ extension ViewController {
     
     func sendPostRequest() {
         guard let urlText = urlTextField.text, !urlText.isEmpty else {
-            writeToConsole("URL text field is empty")
             showAlert(title: "Error", message: "Please enter a valid URL")
             return
         }
         
-        self.writeToConsole("Starting process...")
+        writeToConsole("Starting process...")
         
         UserDefaults.standard.set(urlText, forKey: "url")
         
         guard let url = URL(string: "https://api.cobalt.tools/api/json") else {
-            writeToConsole("Invalid API URL")
             showAlert(title: "Error", message: "Invalid API URL")
             return
         }
@@ -52,7 +50,6 @@ extension ViewController {
         }
         
         guard let jsonData = try? JSONSerialization.data(withJSONObject: requestBody) else {
-            writeToConsole("Failed to serialize JSON data")
             showAlert(title: "Error", message: "Failed to process request")
             return
         }
@@ -67,7 +64,7 @@ extension ViewController {
             guard let self = self else { return }
             
             if let error = error {
-                self.writeToConsole("Error: \(error)")
+                self.writeToConsole("Error: \(error.localizedDescription)")
                 self.showAlert(title: "Error", message: "Failed to process request")
                 return
             }
@@ -87,23 +84,16 @@ extension ViewController {
             }
             
             do {
-                guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-                    throw NSError(domain: "ParsingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to parse JSON"])
-                }
-                
-                guard let status = jsonObject["status"] as? String, let mediaURLString = jsonObject["url"] as? String else {
+                guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                      let status = jsonObject["status"] as? String,
+                      let mediaURLString = jsonObject["url"] as? String else {
                     throw NSError(domain: "ParsingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to extract required data from JSON"])
                 }
                 
                 switch status {
                 case "redirect", "stream":
-                    if self.saveMedia {
-                        self.saveMediaToTempFolder(urlString: mediaURLString)
-                        self.writeToConsole("Saving media to temp folder...")
-                    } else {
-                        self.openURLInSafari(urlString: mediaURLString)
-                        self.writeToConsole("Opening link...")
-                    }
+                    self.saveMedia ? self.saveMediaToDocumentsFolder(urlString: mediaURLString) : self.openURLInSafari(urlString: mediaURLString)
+                    self.writeToConsole(self.saveMedia ? "Saving media to temp folder..." : "Opening link...")
                     
                 default:
                     self.writeToConsole("Unexpected status in response")
