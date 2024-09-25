@@ -17,7 +17,6 @@ extension ViewController {
             showAlert(title: "Error", message: "Please enter a valid URL")
             return
         }
-        
         writeToConsole("Starting process...")
         
         UserDefaults.standard.set(urlText, forKey: "url")
@@ -27,19 +26,25 @@ extension ViewController {
             return
         }
         
+        let validVideoQualities = ["144", "240", "360", "480", "720", "1080", "1440", "2160", "4320", "max"]
+        let validAudioFormats = ["best", "mp3", "ogg", "wav", "opus"]
+        let validAudioBitrates = ["320", "256", "128", "96", "64", "8"]
+        
+        let videoQuality = getUserDefaultsValue(key: "videoQuality", defaultValue: "1080")
+        let audioFormat = getUserDefaultsValue(key: "audioFormat", defaultValue: "mp3")
+        let audioBitrate = getUserDefaultsValue(key: "audioBitrate", defaultValue: "128")
+        
         let requestBody: [String: Any] = [
             "url": getUserDefaultsValue(key: "url", defaultValue: "https://example.com/video"),
-            "videoQuality": getUserDefaultsValue(key: "videoQuality", defaultValue: "1080"),
-            "audioFormat": getUserDefaultsValue(key: "audioFormat", defaultValue: "mp3"),
-            "audioBitrate": getUserDefaultsValue(key: "audioBitrate", defaultValue: "128"),
+            "videoQuality": validVideoQualities.contains(videoQuality) ? videoQuality : "1080",
+            "audioFormat": validAudioFormats.contains(audioFormat) ? audioFormat : "mp3",
+            "audioBitrate": validAudioBitrates.contains(audioBitrate) ? audioBitrate : "128",
             "filenameStyle": getUserDefaultsValue(key: "filenameStyle", defaultValue: "classic"),
-            "downloadMode": getUserDefaultsValue(key: "downloadMode", defaultValue: "auto"),
             "youtubeVideoCodec": getUserDefaultsValue(key: "youtubeVideoCodec", defaultValue: "h264"),
             "alwaysProxy": getUserDefaultsValue(key: "alwaysProxy", defaultValue: false),
             "disableMetadata": getUserDefaultsValue(key: "disableMetadata", defaultValue: false),
             "tiktokFullAudio": getUserDefaultsValue(key: "tiktokFullAudio", defaultValue: false),
-            "tiktokH265": getUserDefaultsValue(key: "tiktokH265", defaultValue: false),
-            "twitterGif": getUserDefaultsValue(key: "twitterGif", defaultValue: true)
+            "tiktokH265": getUserDefaultsValue(key: "tiktokH265", defaultValue: false)
         ]
         
         if debug {
@@ -47,9 +52,6 @@ extension ViewController {
             requestBody.forEach { key, value in
                 writeToConsole("\(key): \(value)")
             }
-            
-            writeToConsole("HTTP Method: POST")
-            writeToConsole("Request URL: \(url.absoluteString)")
         }
         
         guard let jsonData = try? JSONSerialization.data(withJSONObject: requestBody) else {

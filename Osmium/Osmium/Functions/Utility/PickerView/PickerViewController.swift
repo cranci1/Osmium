@@ -1,5 +1,5 @@
 //
-//  Picker.swift
+//  PickerViewController.swift
 //  Osmium
 //
 //  Created by Francesco on 25/09/24.
@@ -31,7 +31,7 @@ class PickerViewController: UIViewController, UICollectionViewDataSource, UIColl
         button.setTitle("Done", for: .normal)
         button.tintColor = .label
         button.backgroundColor = .systemOrange
-        button.layer.cornerRadius = 16
+        button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
@@ -64,7 +64,7 @@ class PickerViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(MediaPickerCell.self, forCellWithReuseIdentifier: "MediaPickerCell")
+        collectionView.register(MediaPickerCell.self, forCellWithReuseIdentifier: MediaPickerCell.reuseIdentifier)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -72,7 +72,7 @@ class PickerViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaPickerCell", for: indexPath) as! MediaPickerCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaPickerCell.reuseIdentifier, for: indexPath) as! MediaPickerCell
         let item = pickerItems[indexPath.row]
         
         if let thumbURL = item["thumb"] as? String, let url = URL(string: thumbURL) {
@@ -81,7 +81,6 @@ class PickerViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         return cell
     }
-
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let item = pickerItems[indexPath.row]
@@ -96,66 +95,30 @@ class PickerViewController: UIViewController, UICollectionViewDataSource, UIColl
         let fallbackSize = (collectionView.bounds.width - 48) / 3
         return CGSize(width: fallbackSize, height: fallbackSize)
     }
-
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedItem = pickerItems[indexPath.row]
-        onItemSelected?(selectedItem!)
+        let isVideo = (selectedItem?["type"] as? String) == "video"
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? MediaPickerCell {
+            cell.showResultAnimation()
+        }
+        
+        if !isVideo {
+            onItemSelected?(selectedItem!)
+        } else {
+            let alert = UIAlertController(title: "Video Selected", message: "Sorry, video saving is not supported in this version.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        }
     }
     
     @objc private func doneButtonTapped() {
         dismiss(animated: true)
-    }
-}
-
-class MediaPickerCell: UICollectionViewCell {
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 8
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
-    private let mediaTypeIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentView.addSubview(imageView)
-        contentView.addSubview(mediaTypeIcon)
-        
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
-            mediaTypeIcon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            mediaTypeIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            mediaTypeIcon.widthAnchor.constraint(equalToConstant: 24),
-            mediaTypeIcon.heightAnchor.constraint(equalToConstant: 24)
-        ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(with url: URL, isVideo: Bool) {
-        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data, let image = UIImage(data: data) else { return }
-            DispatchQueue.main.async {
-                self.imageView.image = image
-                self.mediaTypeIcon.image = isVideo ? UIImage(systemName: "video.fill") : UIImage(systemName: "photo.fill")
-            }
-        }
-        task.resume()
     }
 }
 
@@ -184,7 +147,6 @@ extension ViewController {
             return
         }
         writeToConsole("Selected an Item...")
-        showAlert(title: "Selected Item", message: "URL: \(urlString)")
-        heartButtonTapped(imageString: urlString)
+        saveImage(imageString: urlString)
     }
 }

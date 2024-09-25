@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y1j-Zv-deu">
-    <device id="retina5_5" orientation="portrait" appearance="dark"/>
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <accessibilityOverrides dynamicTypePreference="1"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,7 +17,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Osmium" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvw-wg-h52">
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" keyboardDismissMode="interactive" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3XZ-nk-U5Y" userLabel="Console">
-                                <rect key="frame" x="47" y="147" width="320" height="300"/>
+                                <rect key="frame" x="27.666666666666657" y="147" width="320" height="300"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="PTJ-sP-Uxu"/>
@@ -44,7 +44,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRo-fP-cjh" userLabel="trash">
-                                <rect key="frame" x="187" y="452" width="40" height="34"/>
+                                <rect key="frame" x="167.66666666666666" y="452" width="40" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="MLd-cA-ecL"/>
                                 </constraints>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="insert media url" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujk-pq-NEM" userLabel="url field">
-                                <rect key="frame" x="57" y="546" width="300" height="40"/>
+                                <rect key="frame" x="37.666666666666657" y="546" width="300" height="40"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
@@ -69,7 +69,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pR-dD-w1f">
-                                <rect key="frame" x="107" y="606" width="200" height="40"/>
+                                <rect key="frame" x="87.666666666666686" y="606" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xxv-Nd-cLd"/>
                                     <constraint firstAttribute="width" constant="200" id="qc0-RG-w5Z" userLabel="width = 150"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9a-kz-7AX" userLabel="size-download">
-                                <rect key="frame" x="207" y="666" width="0.0" height="0.0"/>
+                                <rect key="frame" x="187.66666666666666" y="666" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -114,7 +114,7 @@
                             <constraint firstItem="cvw-wg-h52" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="v26-Wm-rEJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Download" image="arrow.down.circle.fill" catalog="system" id="k2T-Pc-K7T"/>
+                    <tabBarItem key="tabBarItem" title="Download" image="arrow.down.app.fill" catalog="system" id="k2T-Pc-K7T"/>
                     <connections>
                         <outlet property="clearConsoleButton" destination="MRo-fP-cjh" id="66T-VH-8HM"/>
                         <outlet property="consoleTextView" destination="3XZ-nk-U5Y" id="8eL-oX-D4U"/>
@@ -131,16 +131,16 @@
             <objects>
                 <tableViewController id="mtx-6N-zlR" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="lq8-A5-hxd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection headerTitle="Media" id="X5D-Cg-xhf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JgA-WL-JaO">
-                                        <rect key="frame" x="20" y="55.333332061767578" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="55.333332061767578" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JgA-WL-JaO" id="GMm-84-3kh">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mwW-lE-BIa">
@@ -171,10 +171,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vEG-nX-FTD">
-                                        <rect key="frame" x="20" y="99" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="99" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vEG-nX-FTD" id="HQ7-Mg-iZt">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speaker.wave.2.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-SX-yff">
@@ -209,10 +209,10 @@
                             <tableViewSection id="eTI-ss-Ktf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PM6-gz-Hu6">
-                                        <rect key="frame" x="20" y="178.66666603088379" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="178.66666603088379" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PM6-gz-Hu6" id="QIv-5y-zKB">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down.doc.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7GB-Dd-DNe">
@@ -243,10 +243,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hUW-Mf-lvE">
-                                        <rect key="frame" x="20" y="222.33333396911621" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="222.33333396911621" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hUW-Mf-lvE" id="HJh-aC-gz9">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Odg-1p-D5g">
@@ -281,10 +281,10 @@
                             <tableViewSection id="L4Z-Di-6xx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="Whr-0c-b8j">
-                                        <rect key="frame" x="20" y="302.00000190734863" width="374" height="100"/>
+                                        <rect key="frame" x="16" y="302.00000190734863" width="343" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Whr-0c-b8j" id="YNM-D0-q27">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.66666666666669" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Osmium" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WY-mJ-XH8">
@@ -342,16 +342,16 @@
             <objects>
                 <tableViewController id="zn6-BL-LQK" customClass="AboutPage" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Jwj-4r-3u3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection footerTitle="Osmium is a free, open source iOS app, developed by cranci, thanks to the cobalt API." id="fdJ-ih-h6Z" userLabel="app info">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VtK-7B-UfX">
-                                        <rect key="frame" x="20" y="18" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="18" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VtK-7B-UfX" id="5Nn-oL-B22">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzY-b1-pOT">
@@ -368,10 +368,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KRr-n7-ntL">
-                                        <rect key="frame" x="20" y="61.666667938232422" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="61.666667938232422" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KRr-n7-ntL" id="aEP-Zv-nfK">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-CJ-weg">
@@ -388,10 +388,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NGr-MW-vf7">
-                                        <rect key="frame" x="20" y="105.33333587646484" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="105.33333587646484" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NGr-MW-vf7" id="G1R-Do-aGY">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github Repository" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSI-Oz-v24">
@@ -417,10 +417,10 @@
                             <tableViewSection footerTitle="Thanks to the developer/s of the cobalt API!" id="hf3-K6-hpN" userLabel="cobalt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fOV-5c-2pY">
-                                        <rect key="frame" x="20" y="213.00000381469729" width="374" height="43.666667938232393"/>
+                                        <rect key="frame" x="16" y="213.00000381469729" width="343" height="43.666667938232393"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fOV-5c-2pY" id="6eq-5j-d0e">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cobalt API" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpp-Re-2zg">
@@ -453,10 +453,10 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU Affero General Public License along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YN6-qF-UMU">
-                                        <rect key="frame" x="20" y="304.66667175292969" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="304.66667175292969" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YN6-qF-UMU" id="vN3-mf-6HM">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyu-le-LUZ">
@@ -515,11 +515,11 @@ You should have received a copy of the GNU Affero General Public License along w
             <objects>
                 <viewController id="yeX-7z-RzH" customClass="VideoPlayerViewController" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="45J-SP-Owr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbJ-Cq-sNr">
-                                <rect key="frame" x="107" y="473" width="200" height="40"/>
+                                <rect key="frame" x="87.666666666666686" y="511" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="DeU-8b-G86" userLabel="width = 150"/>
                                     <constraint firstAttribute="height" constant="40" id="Pa1-Hr-G0W"/>
@@ -541,7 +541,7 @@ You should have received a copy of the GNU Affero General Public License along w
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hh7-LG-L6d">
-                                <rect key="frame" x="20" y="223" width="374" height="210"/>
+                                <rect key="frame" x="0.66666666666665719" y="261" width="374" height="210"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="DfV-qi-k1Q"/>
@@ -558,7 +558,7 @@ You should have received a copy of the GNU Affero General Public License along w
                             <constraint firstItem="hh7-LG-L6d" firstAttribute="centerX" secondItem="45J-SP-Owr" secondAttribute="centerX" id="nrB-Ul-eeH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Media Player" image="play.circle.fill" catalog="system" id="uDi-9L-Rif"/>
+                    <tabBarItem key="tabBarItem" title="Media Player" image="play.tv.fill" catalog="system" id="uDi-9L-Rif"/>
                     <connections>
                         <outlet property="videoView" destination="hh7-LG-L6d" id="Uep-3X-Hkh"/>
                     </connections>
@@ -574,7 +574,7 @@ You should have received a copy of the GNU Affero General Public License along w
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="30x-5U-hdU"/>
                     <navigationItem key="navigationItem" id="ClT-TK-php"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JH6-Ni-cun">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vIL-g0-Sfd">
@@ -593,16 +593,16 @@ You should have received a copy of the GNU Affero General Public License along w
             <objects>
                 <tableViewController id="Gcj-HS-lZN" customClass="Video" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="GeN-zm-wSH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection headerTitle="Quality" footerTitle="If selected quality isn't available, closest one is used insted. 720p is raccomended" id="2R6-86-VVd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IvS-eJ-jwc">
-                                        <rect key="frame" x="20" y="55.333332061767578" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="55.333332061767578" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IvS-eJ-jwc" id="c1l-q4-Lu7">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-Oa-Ryx">
@@ -612,7 +612,7 @@ You should have received a copy of the GNU Affero General Public License along w
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDb-SH-mAt">
-                                                    <rect key="frame" x="284" y="4.6666666666666679" width="80" height="34.333333333333329"/>
+                                                    <rect key="frame" x="253" y="4.6666666666666679" width="80" height="34.333333333333329"/>
                                                     <color key="tintColor" name="AccentColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="choose"/>
@@ -641,17 +641,17 @@ vp9: same quality as av1, but file is x2 bigger. supports 4k &amp; HDR
 pick h264 if you want best compatibility</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vjv-WG-jTX">
-                                        <rect key="frame" x="20" y="190.33333015441895" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="190.33333015441895" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vjv-WG-jTX" id="RnQ-vP-wJ4">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wAW-gh-Gbu">
-                                                    <rect key="frame" x="46.666666666666657" y="6.3333333333333321" width="281" height="31.999999999999996"/>
+                                                    <rect key="frame" x="31" y="6.3333333333333321" width="281" height="31.999999999999996"/>
                                                     <segments>
                                                         <segment title="h264 (mp4)"/>
-                                                        <segment title="av1 (mp4)"/>
+                                                        <segment title="av1 (webm)"/>
                                                         <segment title="vp9 (webm)"/>
                                                     </segments>
                                                     <color key="tintColor" name="AccentColor"/>
@@ -669,10 +669,10 @@ pick h264 if you want best compatibility</string>
                                 <string key="footerTitle">Converting looping videos to .gif reduces quality and majorly increases file size. if you want best efficiency, keep this setting off</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FOg-OC-AGh">
-                                        <rect key="frame" x="20" y="453.33333587646484" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="453.33333587646484" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FOg-OC-AGh" id="WO6-mD-EdV">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convert gifs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoZ-Zr-yfg">
@@ -682,7 +682,7 @@ pick h264 if you want best compatibility</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hts-eG-7lY">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="switchTwitter:" destination="Gcj-HS-lZN" eventType="valueChanged" id="DpQ-6s-Cfv"/>
@@ -702,10 +702,10 @@ pick h264 if you want best compatibility</string>
                             <tableViewSection headerTitle="TikTok" footerTitle="Download 1080p videos from tiktok in h265/hevc format when available" id="w6a-Nw-MmI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="onc-U5-8hN">
-                                        <rect key="frame" x="20" y="604.33333396911621" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="604.33333396911621" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onc-U5-8hN" id="B62-Fk-Oq3">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefer h265" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MZ-oO-4nv">
@@ -715,7 +715,7 @@ pick h264 if you want best compatibility</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GEr-bG-QrL">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="switchTikTok:" destination="Gcj-HS-lZN" eventType="valueChanged" id="ci9-Av-1XN"/>
@@ -755,23 +755,23 @@ pick h264 if you want best compatibility</string>
             <objects>
                 <tableViewController id="3cW-d9-Glb" customClass="Audio" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="mRg-NF-1ta">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection headerTitle="Format" id="zid-CL-9e7">
                                 <string key="footerTitle">When "best" format is selected, you get audio the way it is on service's side. it's not re-encoded. everything else will be re-encoded</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EuH-rr-aiq">
-                                        <rect key="frame" x="20" y="55.333332061767578" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="55.333332061767578" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EuH-rr-aiq" id="Bu5-jD-hNL">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VIt-JR-aDP">
-                                                    <rect key="frame" x="37" y="6.3333333333333321" width="300" height="31.999999999999996"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="VIt-JR-aDP">
+                                                    <rect key="frame" x="6.6666666666666572" y="6.3333333333333321" width="330" height="31.999999999999996"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="Vei-dS-f2S"/>
+                                                        <constraint firstAttribute="width" constant="330" id="Vei-dS-f2S"/>
                                                     </constraints>
                                                     <segments>
                                                         <segment title="best"/>
@@ -791,67 +791,65 @@ pick h264 if you want best compatibility</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Remove audio from video downloads wehn possible" id="Q3i-gs-xj1" userLabel="mute">
+                            <tableViewSection headerTitle="Bitrate" id="4BP-sO-Vjh">
+                                <string key="footerTitle">Bitrate applies only to audio conversion. cobalt can't improve the source audio quality, so choosing a bitrate over 128kbps may inflate the file size with no audible difference. perceived quality may vary by format.</string>
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NPq-jg-pIU">
-                                        <rect key="frame" x="20" y="178.99999618530273" width="374" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6wR-0Y-tuO">
+                                        <rect key="frame" x="16" y="206.33332824707031" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NPq-jg-pIU" id="ivP-Bg-chH">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6wR-0Y-tuO" id="R3A-xU-wM1">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mute audio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPt-5Q-kZz">
-                                                    <rect key="frame" x="15" y="13" width="76.666666666666671" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Olh-eo-pq6">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                    <color key="onTintColor" name="AccentColor"/>
-                                                    <connections>
-                                                        <action selector="switchMute:" destination="3cW-d9-Glb" eventType="valueChanged" id="hUP-Fh-Ehh"/>
-                                                    </connections>
-                                                </switch>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-lD-by9">
+                                                    <rect key="frame" x="6.6666666666666572" y="6.3333333333333321" width="330" height="31.999999999999996"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="330" id="j5f-yD-0Bk"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="320kb"/>
+                                                        <segment title="256kb"/>
+                                                        <segment title="128kb"/>
+                                                        <segment title="96kb"/>
+                                                        <segment title="64kb"/>
+                                                        <segment title="8kb"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
+                                            <color key="tintColor" name="AccentColor"/>
                                             <constraints>
-                                                <constraint firstItem="iPt-5Q-kZz" firstAttribute="centerY" secondItem="ivP-Bg-chH" secondAttribute="centerY" id="9u6-yx-Shh"/>
-                                                <constraint firstItem="Olh-eo-pq6" firstAttribute="trailing" secondItem="ivP-Bg-chH" secondAttribute="trailing" constant="-10" id="ZVm-oz-Gn0"/>
-                                                <constraint firstItem="Olh-eo-pq6" firstAttribute="centerY" secondItem="ivP-Bg-chH" secondAttribute="centerY" id="nV8-Fq-lPd"/>
-                                                <constraint firstItem="iPt-5Q-kZz" firstAttribute="leading" secondItem="ivP-Bg-chH" secondAttribute="leading" constant="15" id="tvx-nP-jz9"/>
+                                                <constraint firstItem="Bd5-lD-by9" firstAttribute="centerY" secondItem="R3A-xU-wM1" secondAttribute="centerY" id="GlL-d5-3vW"/>
+                                                <constraint firstItem="Bd5-lD-by9" firstAttribute="centerX" secondItem="R3A-xU-wM1" secondAttribute="centerX" id="gyO-gh-NTM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Is going to donwnload only the audio of the Media" id="XQ0-YB-fMz" userLabel="only">
+                            <tableViewSection headerTitle="Download Mode" footerTitle="&quot;audio&quot; downloads only the audio, &quot;mute&quot; skips the audio track in videos." id="U2j-ZA-fvO">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eAP-ix-fze">
-                                        <rect key="frame" x="20" y="270.66666412353516" width="374" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NJS-AA-a4O">
+                                        <rect key="frame" x="16" y="389.33332633972168" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eAP-ix-fze" id="jbL-fq-goH">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NJS-AA-a4O" id="d4Y-fO-8RO">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6y-rz-CC8">
-                                                    <rect key="frame" x="15" y="13" width="72" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8A4-rO-Unb">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                    <color key="onTintColor" name="AccentColor"/>
-                                                    <connections>
-                                                        <action selector="switchAudio:" destination="3cW-d9-Glb" eventType="valueChanged" id="EZ6-Oc-CR3"/>
-                                                    </connections>
-                                                </switch>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e2I-n9-IAT">
+                                                    <rect key="frame" x="6.6666666666666572" y="6.3333333333333321" width="330" height="31.999999999999996"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="330" id="Ut0-7s-h0j"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="auto"/>
+                                                        <segment title="audio"/>
+                                                        <segment title="mute"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
+                                            <color key="tintColor" name="AccentColor"/>
                                             <constraints>
-                                                <constraint firstItem="a6y-rz-CC8" firstAttribute="centerY" secondItem="jbL-fq-goH" secondAttribute="centerY" id="7g7-Ql-UPm"/>
-                                                <constraint firstItem="a6y-rz-CC8" firstAttribute="leading" secondItem="jbL-fq-goH" secondAttribute="leading" constant="15" id="TJ4-Wf-VOh"/>
-                                                <constraint firstItem="8A4-rO-Unb" firstAttribute="centerY" secondItem="jbL-fq-goH" secondAttribute="centerY" id="nz8-Ki-RSd"/>
-                                                <constraint firstItem="8A4-rO-Unb" firstAttribute="trailing" secondItem="jbL-fq-goH" secondAttribute="trailing" constant="-10" id="yvH-VQ-srd"/>
+                                                <constraint firstItem="e2I-n9-IAT" firstAttribute="centerY" secondItem="d4Y-fO-8RO" secondAttribute="centerY" id="8qW-Kx-fXs"/>
+                                                <constraint firstItem="e2I-n9-IAT" firstAttribute="centerX" secondItem="d4Y-fO-8RO" secondAttribute="centerX" id="9yy-ty-h1s"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -860,10 +858,10 @@ pick h264 if you want best compatibility</string>
                             <tableViewSection headerTitle="TikTok" footerTitle="Downloads original sound used in the video without any additional changes by the post's author." id="mgf-E1-j8f">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IjC-6h-9bW">
-                                        <rect key="frame" x="20" y="389.66666412353516" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="524.33332633972168" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IjC-6h-9bW" id="bl4-EX-3rn">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full audio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLJ-JR-Sdn">
@@ -873,7 +871,7 @@ pick h264 if you want best compatibility</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2la-pD-Qvr">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="switchFullAudio:" destination="3cW-d9-Glb" eventType="valueChanged" id="Gj1-qW-47L"/>
@@ -898,10 +896,10 @@ pick h264 if you want best compatibility</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="Audio" largeTitleDisplayMode="always" id="ou2-cT-Np2"/>
                     <connections>
-                        <outlet property="audioonly" destination="8A4-rO-Unb" id="eJh-W2-RQz"/>
+                        <outlet property="bitrateControll" destination="Bd5-lD-by9" id="8cF-MQ-DIh"/>
+                        <outlet property="downloadModeControll" destination="e2I-n9-IAT" id="OCz-Su-VXY"/>
                         <outlet property="formatControll" destination="VIt-JR-aDP" id="eaS-YW-McD"/>
                         <outlet property="fullaudio" destination="2la-pD-Qvr" id="dLF-Tx-41J"/>
-                        <outlet property="muteaudio" destination="Olh-eo-pq6" id="roL-eo-IFd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIo-QY-dNK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -913,7 +911,7 @@ pick h264 if you want best compatibility</string>
             <objects>
                 <tableViewController id="iGg-G0-nBa" customClass="Saving" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="QvI-5G-Grm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection id="1Wc-xa-fJv" userLabel="meida">
@@ -922,10 +920,10 @@ pick h264 if you want best compatibility</string>
 Note that this process will be longer based on the size of the media.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="T3E-8z-55j">
-                                        <rect key="frame" x="20" y="18" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="18" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T3E-8z-55j" id="RFd-VQ-We7">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download in APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="427-dB-5tT">
@@ -935,7 +933,7 @@ Note that this process will be longer based on the size of the media.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a14-pU-ZCB">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="switchSaveVideo:" destination="iGg-G0-nBa" eventType="valueChanged" id="Eeu-tI-wDL"/>
@@ -955,10 +953,10 @@ Note that this process will be longer based on the size of the media.</string>
                             <tableViewSection footerTitle="This will open a share view where you can save/share the downloaded file wherever you want" id="S1b-Aw-vwl" userLabel="meida">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Qcr-TN-uWP">
-                                        <rect key="frame" x="20" y="190.00000190734863" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="206.00000190734863" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qcr-TN-uWP" id="CG1-j0-ZPt">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Download when finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2D-gn-kqz">
@@ -968,7 +966,7 @@ Note that this process will be longer based on the size of the media.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HmM-lW-shl">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="switchShareVideo:" destination="iGg-G0-nBa" eventType="valueChanged" id="MRf-Gv-5L3"/>
@@ -988,10 +986,10 @@ Note that this process will be longer based on the size of the media.</string>
                             <tableViewSection footerTitle="Clear the download folder. (the app should do that every restart)" id="rju-es-GOB" userLabel="tmp cleaner">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XAs-xd-Hm2">
-                                        <rect key="frame" x="20" y="297.66666984558105" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="313.66666984558105" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XAs-xd-Hm2" id="As6-XV-Crx">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear tmp folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ij-3V-375">
@@ -1042,27 +1040,27 @@ Note that this process will be longer based on the size of the media.</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3537" y="840"/>
+            <point key="canvasLocation" x="4383" y="104"/>
         </scene>
         <!--Other-->
         <scene sceneID="kCg-5M-9vy">
             <objects>
                 <tableViewController id="ANd-qe-f6M" customClass="Other" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="gca-wg-rrv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection headerTitle="Appearance" id="bLX-XV-ywf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ik3-WX-nKb">
-                                        <rect key="frame" x="20" y="55.333332061767578" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="55.333332061767578" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ik3-WX-nKb" id="T16-Vc-IRK">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6MB-b6-TpI">
-                                                    <rect key="frame" x="37" y="6.3333333333333321" width="300" height="31.999999999999996"/>
+                                                    <rect key="frame" x="21.666666666666657" y="6.3333333333333321" width="300" height="31.999999999999996"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="zYJ-hd-jZu"/>
                                                     </constraints>
@@ -1094,14 +1092,14 @@ nerdy: title and all info in brackets
 Some services don’t support rich file names and always use the classic style</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="D6D-ui-I04">
-                                        <rect key="frame" x="20" y="162.33333015441895" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="162.33333015441895" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D6D-ui-I04" id="Uo8-TU-wt1">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="101-Pz-d9T">
-                                                    <rect key="frame" x="37" y="6.3333333333333321" width="300" height="31.999999999999996"/>
+                                                    <rect key="frame" x="21.666666666666657" y="6.3333333333333321" width="300" height="31.999999999999996"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="NL7-Cc-jec"/>
                                                     </constraints>
@@ -1125,10 +1123,10 @@ Some services don’t support rich file names and always use the classic style</
                             <tableViewSection headerTitle="Miscellaneous" id="GW3-ho-OTc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="x2v-Xt-SRg">
-                                        <rect key="frame" x="20" y="418.00000381469727" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="418.00000381469727" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x2v-Xt-SRg" id="BOH-lq-7ht">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't add Metadata" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vB-Sx-Z86">
@@ -1138,7 +1136,7 @@ Some services don’t support rich file names and always use the classic style</
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ji7-GJ-pQW">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="switchMeta:" destination="ANd-qe-f6M" eventType="valueChanged" id="el1-67-FmS"/>
@@ -1158,10 +1156,10 @@ Some services don’t support rich file names and always use the classic style</
                             <tableViewSection headerTitle="Experimental" id="Z3D-5l-1AE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Yv-o8-NHb">
-                                        <rect key="frame" x="20" y="517.66667175292969" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="517.66667175292969" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Yv-o8-NHb" id="vKx-1j-BwA">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7JY-HL-JL1">
@@ -1171,7 +1169,7 @@ Some services don’t support rich file names and always use the classic style</
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MnO-bt-Cr1">
-                                                    <rect key="frame" x="315" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="switchDebug:" destination="ANd-qe-f6M" eventType="valueChanged" id="Xh4-nQ-0nL"/>
@@ -1205,7 +1203,7 @@ Some services don’t support rich file names and always use the classic style</
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdg-KW-EQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4385" y="840"/>
+            <point key="canvasLocation" x="4383" y="840"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VdR-tS-fq1">
@@ -1230,12 +1228,14 @@ Some services don’t support rich file names and always use the classic style</
     </scenes>
     <resources>
         <image name="Image" width="1024" height="1024"/>
+        <image name="arrow.down.app.fill" catalog="system" width="128" height="114"/>
         <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="arrow.down.doc.fill" catalog="system" width="115" height="128"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <image name="play.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="play.tv.fill" catalog="system" width="128" height="97"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <image name="speaker.wave.2.fill" catalog="system" width="128" height="90"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>

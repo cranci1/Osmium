@@ -1,5 +1,5 @@
 //
-//  image.swift
+//  ImageSaver.swift
 //  Osmium
 //
 //  Created by Francesco on 25/09/24.
@@ -11,8 +11,7 @@ import Photos
 import MobileCoreServices
 
 extension ViewController {
-    
-    @objc func heartButtonTapped(imageString: String) {
+    @objc func saveImage(imageString: String) {
         guard let imageUrl = URL(string: imageString) else {
             return
         }
