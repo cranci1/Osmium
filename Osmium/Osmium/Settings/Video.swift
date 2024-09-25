@@ -59,7 +59,7 @@ class Video: UITableViewController {
         }
         
         UserDefaults.standard.set(selectedIndexCodec, forKey: "selectedIndexCodec")
-        UserDefaults.standard.set(vCodec, forKey: "vCodec")
+        UserDefaults.standard.set(vCodec, forKey: "youtubeVideoCodec")
     }
     
     @IBAction func presentActionSheet(_ sender: UIButton) {

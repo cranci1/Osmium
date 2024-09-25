@@ -30,16 +30,17 @@ extension ViewController {
         
         let requestBody: [String: Any] = [
             "url": getUserDefaultsValue(key: "url", defaultValue: "https://example.com/video"),
-            "vCodec": getUserDefaultsValue(key: "vCodec", defaultValue: "h264"),
-            "vQuality": getUserDefaultsValue(key: "vQuality", defaultValue: "720"),
-            "aFormat": getUserDefaultsValue(key: "aFormat", defaultValue: "mp3"),
-            "filenamePattern": getUserDefaultsValue(key: "filenamePattern", defaultValue: "classic"),
-            "isAudioOnly": getUserDefaultsValue(key: "isAudioOnly", defaultValue: false),
-            "isTTFullAudio": getUserDefaultsValue(key: "isTTFullAudio", defaultValue: false),
-            "isAudioMuted": getUserDefaultsValue(key: "isAudioMuted", defaultValue: false),
+            "videoQuality": getUserDefaultsValue(key: "videoQuality", defaultValue: "1080"),
+            "audioFormat": getUserDefaultsValue(key: "audioFormat", defaultValue: "mp3"),
+            "audioBitrate": getUserDefaultsValue(key: "audioBitrate", defaultValue: "128"),
+            "filenameStyle": getUserDefaultsValue(key: "filenameStyle", defaultValue: "classic"),
+            "downloadMode": getUserDefaultsValue(key: "downloadMode", defaultValue: "auto"),
+            "youtubeVideoCodec": getUserDefaultsValue(key: "youtubeVideoCodec", defaultValue: "h264"),
+            "alwaysProxy": getUserDefaultsValue(key: "alwaysProxy", defaultValue: false),
             "disableMetadata": getUserDefaultsValue(key: "disableMetadata", defaultValue: false),
-            "twitterGif": getUserDefaultsValue(key: "twitterGif", defaultValue: false),
-            "tiktokH265": getUserDefaultsValue(key: "tiktokH265", defaultValue: false)
+            "tiktokFullAudio": getUserDefaultsValue(key: "tiktokFullAudio", defaultValue: false),
+            "tiktokH265": getUserDefaultsValue(key: "tiktokH265", defaultValue: false),
+            "twitterGif": getUserDefaultsValue(key: "twitterGif", defaultValue: true)
         ]
         
         if debug {
@@ -85,18 +86,33 @@ extension ViewController {
             
             do {
                 guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                      let status = jsonObject["status"] as? String,
-                      let mediaURLString = jsonObject["url"] as? String else {
-                    throw NSError(domain: "ParsingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to extract required data from JSON"])
+                      let status = jsonObject["status"] as? String else {
+                    throw NSError(domain: "ParsingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to extract status from JSON"])
                 }
                 
                 switch status {
-                case "redirect", "stream":
+                case "redirect", "tunnel":
+                    guard let mediaURLString = jsonObject["url"] as? String,
+                          let filename = jsonObject["filename"] as? String else {
+                        throw NSError(domain: "ParsingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to extract URL or filename from JSON"])
+                    }
                     self.saveMedia ? self.saveMediaToDocumentsFolder(urlString: mediaURLString) : self.openURLInSafari(urlString: mediaURLString)
                     self.writeToConsole(self.saveMedia ? "Saving media to temp folder..." : "Opening link...")
+                case "picker":
+                    self.writeToConsole("Opening Image Picker...")
+                    self.handlePickerResponse(jsonObject)
+                case "error":
+                    if let errorObject = jsonObject["error"] as? [String: Any],
+                       let errorCode = errorObject["code"] as? String {
+                        self.writeToConsole("Error: \(errorCode)")
+                        self.showAlert(title: "Error", message: "API returned an error: \(errorCode)")
+                    } else {
+                        self.writeToConsole("Unknown error in response")
+                        self.showAlert(title: "Error", message: "Unknown error in API response")
+                    }
                     
                 default:
-                    self.writeToConsole("Unexpected status in response")
+                    self.writeToConsole("Unexpected status in response: \(status)")
                     self.showAlert(title: "Error", message: "Unexpected status in response")
                 }
             } catch {

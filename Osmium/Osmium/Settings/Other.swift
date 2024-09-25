@@ -60,7 +60,7 @@ class Other: UITableViewController {
         }
 
         UserDefaults.standard.set(selectedIndexNameFormat, forKey: "selectedIndexNameFormat")
-        UserDefaults.standard.set(filenamePattern, forKey: "filenamePattern")
+        UserDefaults.standard.set(filenamePattern, forKey: "filenameStyle")
     }
 
     @objc func appearanceControlValueChanged(_ sender: UISegmentedControl) {

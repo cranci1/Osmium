@@ -60,6 +60,6 @@ class Audio: UITableViewController {
         }
         
         UserDefaults.standard.set(selectedIndexFormat, forKey: "selectedIndexFormat")
-        UserDefaults.standard.set(aFormat, forKey: "aFormat")
+        UserDefaults.standard.set(aFormat, forKey: "audioFormat")
     }
 }
