@@ -29,6 +29,10 @@ class PickerViewController: UIViewController, UICollectionViewDataSource, UIColl
     private let doneButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Done", for: .normal)
+        button.tintColor = .label
+        button.backgroundColor = .systemOrange
+        button.layer.cornerRadius = 16
+        button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         return button
@@ -51,9 +55,10 @@ class PickerViewController: UIViewController, UICollectionViewDataSource, UIColl
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -16),
-            doneButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            
+            doneButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            doneButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
+            doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             doneButton.heightAnchor.constraint(equalToConstant: 44)
         ])
         
@@ -71,15 +76,27 @@ class PickerViewController: UIViewController, UICollectionViewDataSource, UIColl
         let item = pickerItems[indexPath.row]
         
         if let thumbURL = item["thumb"] as? String, let url = URL(string: thumbURL) {
-            cell.configure(with: url)
+            let isVideo = (item["type"] as? String) == "video"
+            cell.configure(with: url, isVideo: isVideo)
         }
         return cell
     }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.bounds.width - 48) / 3
-        return CGSize(width: width, height: width)
+        let item = pickerItems[indexPath.row]
+        
+        if let width = item["width"] as? CGFloat, let height = item["height"] as? CGFloat {
+            let ratio = height / width
+            let itemWidth = collectionView.bounds.width - 32
+            let itemHeight = itemWidth * ratio
+            return CGSize(width: itemWidth, height: itemHeight)
+        }
+        
+        let fallbackSize = (collectionView.bounds.width - 48) / 3
+        return CGSize(width: fallbackSize, height: fallbackSize)
     }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedItem = pickerItems[indexPath.row]
@@ -101,15 +118,28 @@ class MediaPickerCell: UICollectionViewCell {
         return imageView
     }()
     
+    private let mediaTypeIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
+        contentView.addSubview(mediaTypeIcon)
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
+            mediaTypeIcon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            mediaTypeIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            mediaTypeIcon.widthAnchor.constraint(equalToConstant: 24),
+            mediaTypeIcon.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
     
@@ -117,11 +147,12 @@ class MediaPickerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with url: URL) {
+    func configure(with url: URL, isVideo: Bool) {
         let task = URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data, let image = UIImage(data: data) else { return }
             DispatchQueue.main.async {
                 self.imageView.image = image
+                self.mediaTypeIcon.image = isVideo ? UIImage(systemName: "video.fill") : UIImage(systemName: "photo.fill")
             }
         }
         task.resume()
@@ -129,7 +160,6 @@ class MediaPickerCell: UICollectionViewCell {
 }
 
 extension ViewController {
-    
     func handlePickerResponse(_ response: [String: Any]) {
         guard let picker = response["picker"] as? [[String: Any]] else {
             showAlert(title: "Error", message: "Invalid picker data")
@@ -153,6 +183,7 @@ extension ViewController {
             showAlert(title: "Error", message: "Invalid URL in selected item")
             return
         }
+        writeToConsole("Selected an Item...")
         showAlert(title: "Selected Item", message: "URL: \(urlString)")
         heartButtonTapped(imageString: urlString)
     }

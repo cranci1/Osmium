@@ -8,7 +8,6 @@
 import UIKit
 
 extension ViewController {
-    
     func getUserDefaultsValue<T>(key: String, defaultValue: T) -> T {
         return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
     }
@@ -48,6 +47,9 @@ extension ViewController {
             requestBody.forEach { key, value in
                 writeToConsole("\(key): \(value)")
             }
+            
+            writeToConsole("HTTP Method: POST")
+            writeToConsole("Request URL: \(url.absoluteString)")
         }
         
         guard let jsonData = try? JSONSerialization.data(withJSONObject: requestBody) else {
@@ -89,11 +91,11 @@ extension ViewController {
                       let status = jsonObject["status"] as? String else {
                     throw NSError(domain: "ParsingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to extract status from JSON"])
                 }
+                self.writeToConsole("Response Status: \(status)")
                 
                 switch status {
-                case "redirect", "tunnel":
-                    guard let mediaURLString = jsonObject["url"] as? String,
-                          let filename = jsonObject["filename"] as? String else {
+                case "redirect", "stream", "tunnel":
+                    guard let mediaURLString = jsonObject["url"] as? String else {
                         throw NSError(domain: "ParsingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to extract URL or filename from JSON"])
                     }
                     self.saveMedia ? self.saveMediaToDocumentsFolder(urlString: mediaURLString) : self.openURLInSafari(urlString: mediaURLString)

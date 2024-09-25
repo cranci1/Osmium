@@ -22,6 +22,7 @@ extension ViewController {
             
             if let error = error {
                 print("Error downloading image: \(error.localizedDescription)")
+                self.writeToConsole("Error downloading image: \(error.localizedDescription)")
                 return
             }
             
@@ -33,10 +34,13 @@ extension ViewController {
                let utType = CGImageSourceGetType(source),
                UTTypeConformsTo(utType, kUTTypeGIF) {
                 self.saveGIFImage(data: data)
+                self.writeToConsole("Saving GIF image")
             } else if let uiImage = UIImage(data: data) {
                 self.saveJPEGImage(uiImage: uiImage)
+                self.writeToConsole("Saving image")
             } else {
                 print("Error converting image to JPEG format")
+                self.writeToConsole("Error converting image to JPEG format")
             }
         }
     }
@@ -66,8 +70,10 @@ extension ViewController {
             guard let self = self else { return }
             if success {
                 print("GIF image saved to Photos library")
+                self.writeToConsole("GIF image saved to Photos library")
             } else {
                 print("Error saving GIF image: \(error?.localizedDescription ?? "")")
+                self.writeToConsole("Error saving GIF image: \(error?.localizedDescription ?? "")")
             }
         }
     }
@@ -76,12 +82,29 @@ extension ViewController {
         UIImageWriteToSavedPhotosAlbum(uiImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
+    private func saveVideo(data: Data) {
+        PHPhotoLibrary.shared().performChanges {
+            let creationRequest = PHAssetCreationRequest.forAsset()
+            creationRequest.addResource(with: .video, data: data, options: nil)
+        } completionHandler: { [weak self] success, error in
+            guard let self = self else { return }
+            if success {
+                print("Video saved to Photos library")
+                self.writeToConsole("Video saved to Photos library")
+            } else {
+                print("Error saving video: \(error?.localizedDescription ?? "")")
+                self.writeToConsole("Error saving video: \(error?.localizedDescription ?? "")")
+            }
+        }
+    }
+    
     @objc private func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             print("Error saving image: \(error.localizedDescription)")
+            self.writeToConsole("Error saving image: \(error.localizedDescription)")
         } else {
             print("Image saved successfully")
+            self.writeToConsole("Image saved successfully")
         }
     }
 }
-
