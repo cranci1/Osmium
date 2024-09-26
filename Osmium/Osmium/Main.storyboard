@@ -906,7 +906,7 @@ pick h264 if you want best compatibility</string>
             </objects>
             <point key="canvasLocation" x="3538" y="104"/>
         </scene>
-        <!--Saving-->
+        <!--Saving Options-->
         <scene sceneID="2nV-ds-6M7">
             <objects>
                 <tableViewController id="iGg-G0-nBa" customClass="Saving" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
@@ -1018,7 +1018,7 @@ Note that this process will be longer based on the size of the media.</string>
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="IQL-L0-jGF">
+                    <navigationItem key="navigationItem" title="Saving Options" id="IQL-L0-jGF">
                         <barButtonItem key="rightBarButtonItem" id="y7t-QW-QeT">
                             <imageReference key="image" image="folder.fill" catalog="system" symbolScale="large"/>
                             <color key="tintColor" name="AccentColor"/>

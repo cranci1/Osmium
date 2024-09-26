@@ -40,23 +40,23 @@ extension ViewController: URLSessionDownloadDelegate {
         let shouldShareMedia = UserDefaults.standard.bool(forKey: userDefaultsKeyForSharing)
         
         do {
-            if shouldShareMedia {
-                writeToConsole("File ready for sharing: \(destinationURL.path)")
-                openShareView(with: location)
-            } else {
-                if fileManager.fileExists(atPath: destinationURL.path) {
-                    try fileManager.removeItem(at: destinationURL)
+            if fileManager.fileExists(atPath: destinationURL.path) {
+                try fileManager.removeItem(at: destinationURL)
+            }
+            try fileManager.moveItem(at: location, to: destinationURL)
+            writeToConsole("File saved to: \(destinationURL.path)")
+            
+            DispatchQueue.main.async {
+                self.downloadProgressLabel.text = "Download complete!"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.downloadProgressLabel.isHidden = true
                 }
-                try fileManager.moveItem(at: location, to: destinationURL)
-                writeToConsole("File saved to: \(destinationURL.path)")
                 
-                DispatchQueue.main.async {
-                    self.downloadProgressLabel.text = "Download complete!"
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        self.downloadProgressLabel.isHidden = true
-                    }
+                if shouldShareMedia {
+                    self.shareAndDeleteFile(at: destinationURL)
+                } else {
+                    self.scheduleNotification()
                 }
-                scheduleNotification()
             }
         } catch {
             writeToConsole("Error handling media: \(error.localizedDescription)")
@@ -68,7 +68,6 @@ extension ViewController: URLSessionDownloadDelegate {
         DispatchQueue.main.async {
             self.downloadProgressLabel.isHidden = false
             if totalBytesExpectedToWrite > 0 {
-                _ = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
                 self.downloadProgressLabel.text = String(format: "Downloaded %.2f MB of %.2f MB", Double(totalBytesWritten) / 1_000_000, Double(totalBytesExpectedToWrite) / 1_000_000)
             } else {
                 self.downloadProgressLabel.text = String(format: "Downloaded %.2f MB", Double(totalBytesWritten) / 1_000_000)
@@ -83,6 +82,22 @@ extension ViewController: URLSessionDownloadDelegate {
                 self.showAlert(title: "Error", message: "Failed to download media")
             }
         }
+    }
+    
+    private func shareAndDeleteFile(at url: URL) {
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = { [weak self] (activityType, completed, returnedItems, error) in
+            guard let self = self else { return }
+            
+            do {
+                try FileManager.default.removeItem(at: url)
+                self.writeToConsole("File deleted after sharing: \(url.path)")
+            } catch {
+                self.writeToConsole("Error deleting file after sharing: \(error.localizedDescription)")
+            }
+        }
+        
+        present(activityViewController, animated: true, completion: nil)
     }
     
     private func scheduleNotification() {
