@@ -69,4 +69,4 @@ Therefore, Osmium **is not a piracy tool** and will never be used as one.
 
 ## Acknowledgements
 
-Osmium would not exist without the help of the **Cobalt API**. Special thanks to the developer team of the Cobalt API, [imput](https://github.com/imputnet).
+Osmium would not exist without the help of the **Cobalt API**. Special thanks to the developer team of the Cobalt API, [imput](https://github.com/imputnet)
