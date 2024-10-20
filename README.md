@@ -1,5 +1,3 @@
-**As of October 20, 2024, the Cobal API now requires authentication for api usages. Starting from version 0.5, Osmium will require you to set up a custom instance with an API key to continue using the service. This is because i dont want to be classified as a bad actor in the Cobal community. My goal with this project has always been to simplify file downloads on iOS devices via Cobal. For instructions on creating a custom instance, please refer to [this guide](https://github.com/imputnet/cobalt/tree/main/api).**
-
 <img src="https://raw.githubusercontent.com/cranci1/Osmium/main/assets/Untitled.png">
 
 <div align="center">
@@ -15,10 +13,15 @@ A free iOS mobile client to download publicly accessible items from various know
 
 ## Table of Contents
 
+- [Important](#important)
 - [Compatibility](#compatibility)
 - [Supported Platforms](#supported-platforms)
 - [Disclaimer](#disclaimer)
 - [Acknowledgements](#acknowledgements)
+
+## Important
+
+As of October 20, 2024, the Cobal API now requires authentication for api usages. Starting from version 0.5, Osmium will require you to set up a custom instance with an API key to continue using the service. This is because i dont want to be classified as a bad actor in the Cobal community. My goal with this project has always been to simplify file downloads on iOS devices via Cobal. For instructions on creating a custom instance, please refer to [this guide](https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md)
 
 ## Compatibility
 
