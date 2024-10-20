@@ -21,10 +21,11 @@ extension ViewController {
         
         UserDefaults.standard.set(urlText, forKey: "url")
         
-        guard let url = URL(string: "https://api.cobalt.tools/api/json") else {
-            showAlert(title: "Error", message: "Invalid API URL")
-            return
-        }
+        guard let urlString = UserDefaults.standard.string(forKey: "requestURL"),
+              let url = URL(string: urlString) else {
+                  showAlert(title: "Error", message: "Invalid API URL")
+                  return
+              }
         
         let validVideoQualities = ["144", "240", "360", "480", "720", "1080", "1440", "2160", "4320", "max"]
         let validAudioFormats = ["best", "mp3", "ogg", "wav", "opus"]
@@ -60,10 +61,23 @@ extension ViewController {
         }
         
         var request = URLRequest(url: url)
+        if debug {
+            writeToConsole("Sending request to: \(url)")
+        }
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
+        
+        if let authKey = UserDefaults.standard.string(forKey: "authKey"),
+           let authType = UserDefaults.standard.string(forKey: "authType") {
+            let authValue = "\(authType) \(authKey)"
+            request.setValue(authValue, forHTTPHeaderField: "Authorization")
+            
+            if debug {
+                writeToConsole("Authorization Header: \(authValue)")
+            }
+        }
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             guard let self = self else { return }
