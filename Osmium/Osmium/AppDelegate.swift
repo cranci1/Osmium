@@ -14,7 +14,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Theme setting is now done in SceneDelegate for scene-based apps.
+        setupDefaultUserPreferences()
         return true
+    }
+    
+    private func setupDefaultUserPreferences() {
+        let defaultValues: [String: Any] = [
+            "videoQuality": "max",
+            "youtubeVideoCodec": "h264",
+            "twitterGif": true,
+            "audioFormat": "mp3",
+            "audioBitrate": "128kb/s"
+        ]
+        
+        for (key, value) in defaultValues {
+            if UserDefaults.standard.object(forKey: key) == nil {
+                UserDefaults.standard.set(value, forKey: key)
+            }
+        }
     }
 
     // MARK: UISceneSession Lifecycle

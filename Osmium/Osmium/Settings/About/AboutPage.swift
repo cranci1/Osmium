@@ -1,6 +1,6 @@
 //
 //  AboutPage.swift
-//  cobalt
+//  Osmium
 //
 //  Created by Francesco on 28/05/24.
 //

@@ -33,11 +33,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         urlTextField.delegate = self
         urlTextField.text = UserDefaults.standard.string(forKey: "url")
         
-        let selectedChoiceIndex = UserDefaults.standard.integer(forKey: "SelectedChoiceIndex")
-        UserDefaults.standard.set(choices[selectedChoiceIndex], forKey: "videoQuality")
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(selectedChoiceChanged(_:)), name: Notification.Name("SelectedChoiceChanged"), object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
@@ -85,12 +80,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: duration) {
             self.view.frame.origin.y = 0
         }
-    }
-
-    @objc func selectedChoiceChanged(_ notification: Notification) {
-        guard let selectedIndex = notification.object as? Int else { return }
-        guard selectedIndex >= 0 && selectedIndex < choices.count else { return }
-        UserDefaults.standard.set(choices[selectedIndex], forKey: "videoQuality")
     }
     
     @IBAction func sendRequestButtonTapped(_ sender: UIButton) {

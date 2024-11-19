@@ -17,35 +17,56 @@ extension ViewController {
             showAlert(title: "Error", message: "Please enter a valid URL")
             return
         }
-        writeToConsole("Starting process...")
         
-        UserDefaults.standard.set(urlText, forKey: "url")
-        
-        guard let urlString = UserDefaults.standard.string(forKey: "requestURL"),
-              let url = URL(string: urlString) else {
-                  showAlert(title: "Error", message: "Invalid API URL")
-                  return
-              }
+        guard let url = URL(string: UserDefaults.standard.string(forKey: "requestURL") ?? "") else {
+            showAlert(title: "Error", message: "Invalid API URL")
+            return
+        }
         
         let validVideoQualities = ["144", "240", "360", "480", "720", "1080", "1440", "2160", "4320", "max"]
         let validAudioFormats = ["best", "mp3", "ogg", "wav", "opus"]
         let validAudioBitrates = ["320", "256", "128", "96", "64", "8"]
+        let validFilenameStyles = ["classic", "pretty", "basic", "nerdy"]
+        let validDownloadModes = ["auto", "audio", "mute"]
+        let validVideoCodecs = ["h264", "av1", "vp9"]
         
-        let videoQuality = getUserDefaultsValue(key: "videoQuality", defaultValue: "1080")
+        func cleanVideoQuality(_ quality: String) -> String {
+            switch quality {
+            case "8k+":
+                return "2160"
+            case "4k":
+                return "1440"
+            default:
+                return quality.replacingOccurrences(of: "p", with: "")
+            }
+        }
+        
+        func cleanAudioBitrate(_ bitrate: String) -> String {
+            return bitrate.replacingOccurrences(of: "kbps", with: "").replacingOccurrences(of: "kb/s", with: "")
+        }
+        
+        let videoQuality = cleanVideoQuality(getUserDefaultsValue(key: "videoQuality", defaultValue: "1080"))
         let audioFormat = getUserDefaultsValue(key: "audioFormat", defaultValue: "mp3")
-        let audioBitrate = getUserDefaultsValue(key: "audioBitrate", defaultValue: "128")
+        let audioBitrate = cleanAudioBitrate(getUserDefaultsValue(key: "audioBitrate", defaultValue: "128"))
+        let filenameStyle = getUserDefaultsValue(key: "filenameStyle", defaultValue: "classic")
+        let downloadMode = getUserDefaultsValue(key: "downloadMode", defaultValue: "auto")
+        let youtubeVideoCodec = getUserDefaultsValue(key: "youtubeVideoCodec", defaultValue: "h264")
         
         let requestBody: [String: Any] = [
-            "url": getUserDefaultsValue(key: "url", defaultValue: "https://example.com/video"),
+            "url": urlText,
             "videoQuality": validVideoQualities.contains(videoQuality) ? videoQuality : "1080",
             "audioFormat": validAudioFormats.contains(audioFormat) ? audioFormat : "mp3",
             "audioBitrate": validAudioBitrates.contains(audioBitrate) ? audioBitrate : "128",
-            "filenameStyle": getUserDefaultsValue(key: "filenameStyle", defaultValue: "classic"),
-            "youtubeVideoCodec": getUserDefaultsValue(key: "youtubeVideoCodec", defaultValue: "h264"),
+            "filenameStyle": validFilenameStyles.contains(filenameStyle) ? filenameStyle : "classic",
+            "downloadMode": validDownloadModes.contains(downloadMode) ? downloadMode : "auto",
+            "youtubeVideoCodec": validVideoCodecs.contains(youtubeVideoCodec) ? youtubeVideoCodec : "h264",
+            
             "alwaysProxy": getUserDefaultsValue(key: "alwaysProxy", defaultValue: false),
             "disableMetadata": getUserDefaultsValue(key: "disableMetadata", defaultValue: false),
             "tiktokFullAudio": getUserDefaultsValue(key: "tiktokFullAudio", defaultValue: false),
-            "tiktokH265": getUserDefaultsValue(key: "tiktokH265", defaultValue: false)
+            "tiktokH265": getUserDefaultsValue(key: "tiktokH265", defaultValue: false),
+            "twitterGif": getUserDefaultsValue(key: "twitterGif", defaultValue: true),
+            "youtubeHLS": getUserDefaultsValue(key: "youtubeHLS", defaultValue: false)
         ]
         
         if debug {

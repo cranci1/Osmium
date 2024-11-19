@@ -1,6 +1,6 @@
 //
 //  Video.swift
-//  cobalt
+//  Osmium
 //
 //  Created by Francesco on 26/05/24.
 //
@@ -10,29 +10,61 @@ import UIKit
 class Video: UITableViewController {
     
     @IBOutlet weak var Quality: UIButton!
-    
-    var isPresentingActionSheet = false
-    var selectedQualityIndex = 5
-    let choices = ["8k+", "4k", "1440p", "1080p", "720p", "480p", "360p", "240p", "144p"]
-    
-    @IBOutlet weak var codecControll: UISegmentedControl!
-    
+    @IBOutlet weak var codecButton: UIButton!
     @IBOutlet weak var twitter: UISwitch!
     @IBOutlet weak var tiktok: UISwitch!
-        
+    @IBOutlet weak var youtubeHLS: UISwitch!
+    
+    let choices = ["max", "8k", "4k", "1440p", "1080p", "720p", "480p", "360p", "240p", "144p"]
+    let videoCodecs = ["h264", "av1", "vp9"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectedQualityIndex = UserDefaults.standard.integer(forKey: "SelectedChoiceIndex")
-        
+        setupQualityButton()
+        setupCodecButton()
+        setupSwitches()
+    }
+    
+    func setupSwitches() {
         twitter.isOn = UserDefaults.standard.bool(forKey: "twitterGif")
         tiktok.isOn = UserDefaults.standard.bool(forKey: "tiktokH265")
-        let selectedIndexCodec = UserDefaults.standard.integer(forKey: "selectedIndexCodec")
-        codecControll.selectedSegmentIndex = selectedIndexCodec
+        youtubeHLS.isOn = UserDefaults.standard.bool(forKey: "youtubeHLS")
+    }
+    
+    func setupQualityButton() {
+        let selectedQualitu = UserDefaults.standard.string(forKey: "videoQuality") ?? "max"
+        Quality.setTitle(selectedQualitu, for: .normal)
         
-        codecControll.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+        Quality.menu = createMenu(for: choices, currentValue: selectedQualitu) { [weak self] selectedValue in
+            UserDefaults.standard.set(selectedValue, forKey: "videoQuality")
+            self?.Quality.setTitle(selectedValue, for: .normal)
+        }
+        Quality.showsMenuAsPrimaryAction = true
+    }
+    
+    func setupCodecButton() {
+        let selectedCodec = UserDefaults.standard.string(forKey: "youtubeVideoCodec") ?? "h264"
+        codecButton.setTitle(selectedCodec, for: .normal)
         
-        updateButtonTitle()
+        codecButton.menu = createMenu(for: videoCodecs, currentValue: selectedCodec) { [weak self] selectedValue in
+            UserDefaults.standard.set(selectedValue, forKey: "youtubeVideoCodec")
+            self?.codecButton.setTitle(selectedValue, for: .normal)
+        }
+        codecButton.showsMenuAsPrimaryAction = true
+    }
+    
+    func createMenu(for options: [String], currentValue: String, selectionHandler: @escaping (String) -> Void) -> UIMenu {
+        let menuChildren = options.map { option in
+            UIAction(
+                title: option,
+                state: option == currentValue ? .on : .off,
+                handler: { _ in
+                    selectionHandler(option)
+                }
+            )
+        }
+        return UIMenu(children: menuChildren)
     }
     
     @IBAction func switchTwitter(_ sender: UISwitch) {
@@ -43,53 +75,7 @@ class Video: UITableViewController {
         UserDefaults.standard.set(sender.isOn, forKey: "tiktokH265")
     }
     
-    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        let selectedIndexCodec = sender.selectedSegmentIndex
-        var vCodec: String
-        
-        switch selectedIndexCodec {
-        case 0:
-            vCodec = "h264"
-        case 1:
-            vCodec = "av1"
-        case 2:
-            vCodec = "vp9"
-        default:
-            vCodec = "h264"
-        }
-        
-        UserDefaults.standard.set(selectedIndexCodec, forKey: "selectedIndexCodec")
-        UserDefaults.standard.set(vCodec, forKey: "youtubeVideoCodec")
+    @IBAction func switchYouTubeHLS(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "youtubeHLS")
     }
-    
-    @IBAction func presentActionSheet(_ sender: UIButton) {
-         isPresentingActionSheet = true
-         presentChoicesActionSheet()
-     }
-     
-     func presentChoicesActionSheet() {
-         let actionSheet = UIAlertController(title: "Choose Quality", message: nil, preferredStyle: .actionSheet)
-         
-         for (index, choice) in choices.enumerated() {
-             actionSheet.addAction(UIAlertAction(title: choice, style: .default, handler: { _ in
-                 self.updateSelectedChoiceIndex(index)
-             }))
-         }
-         
-         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-         
-         present(actionSheet, animated: true, completion: nil)
-     }
-     
-     func updateSelectedChoiceIndex(_ index: Int) {
-         selectedQualityIndex = index
-         updateButtonTitle()
-         UserDefaults.standard.set(selectedQualityIndex, forKey: "SelectedChoiceIndex")
-         NotificationCenter.default.post(name: Notification.Name("SelectedChoiceChanged"), object: selectedQualityIndex)
-     }
-     
-     func updateButtonTitle() {
-         let selectedChoice = choices[selectedQualityIndex]
-         Quality.setTitle(selectedChoice, for: .normal)
-     }
 }

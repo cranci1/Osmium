@@ -652,9 +652,6 @@ You should have received a copy of the GNU Affero General Public License along w
                                                     <buttonConfiguration key="configuration" style="plain" title="choose">
                                                         <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                                     </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="presentActionSheet:" destination="Gcj-HS-lZN" eventType="touchUpInside" id="Z81-Qv-bou"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -667,45 +664,88 @@ You should have received a copy of the GNU Affero General Public License along w
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="youtube codec" id="uPH-xq-cAH">
-                                <string key="footerTitle">h264: best support across apps/platforms, average detail level. max quality is 1080p           
+                            <tableViewSection headerTitle="youtube" id="uPH-xq-cAH">
+                                <mutableString key="footerTitle">pick h264 if you want best compatibility.        
+        
+h264: best support across apps/platforms, average detail level. max quality is 1080p.      
 
-av1: best quality, small file size, most detail. supports 8k &amp; HDR
+av1: best quality, small file size, most detail. supports 8k &amp; HDR.
 
-vp9: same quality as av1, but file is x2 bigger. supports 4k &amp; HDR
+vp9: same quality as av1, but file is x2 bigger. supports 4k &amp; HDR.
 
-pick h264 if you want best compatibility</string>
+---------
+HLS:
+
+files download faster and are less prone to errors or getting abruptly cut off. only h264 and vp9 codecs are available in this mode. original audio codec is aac, it's re-encoded for compatibility, audio quality may be slightly worse than the non-HLS counterpart.
+
+this option is experimental, it may go away or change in the future.</mutableString>
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vjv-WG-jTX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="koB-4I-Rbg">
                                         <rect key="frame" x="16" y="190.33333015441895" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vjv-WG-jTX" id="RnQ-vP-wJ4">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="koB-4I-Rbg" id="EO0-wz-y3e">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wAW-gh-Gbu">
-                                                    <rect key="frame" x="31" y="6.3333333333333321" width="281" height="31.999999999999996"/>
-                                                    <segments>
-                                                        <segment title="h264 (mp4)"/>
-                                                        <segment title="av1 (webm)"/>
-                                                        <segment title="vp9 (webm)"/>
-                                                    </segments>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codec and Container" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1V-EX-SrI">
+                                                    <rect key="frame" x="15" y="13" width="145" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXf-NA-Xkr">
+                                                    <rect key="frame" x="259" y="6" width="74" height="32"/>
                                                     <color key="tintColor" name="AccentColor"/>
-                                                </segmentedControl>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="choose">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                    </buttonConfiguration>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wAW-gh-Gbu" firstAttribute="centerY" secondItem="RnQ-vP-wJ4" secondAttribute="centerY" id="Hxh-jH-1dX"/>
-                                                <constraint firstItem="wAW-gh-Gbu" firstAttribute="centerX" secondItem="RnQ-vP-wJ4" secondAttribute="centerX" id="ML7-Ik-HFv"/>
+                                                <constraint firstItem="mXf-NA-Xkr" firstAttribute="trailing" secondItem="EO0-wz-y3e" secondAttribute="trailing" constant="-10" id="ArU-xt-hU7"/>
+                                                <constraint firstItem="U1V-EX-SrI" firstAttribute="centerY" secondItem="EO0-wz-y3e" secondAttribute="centerY" id="Fhq-0U-c6f"/>
+                                                <constraint firstItem="U1V-EX-SrI" firstAttribute="leading" secondItem="EO0-wz-y3e" secondAttribute="leading" constant="15" id="bdr-QT-RT8"/>
+                                                <constraint firstItem="mXf-NA-Xkr" firstAttribute="centerY" secondItem="EO0-wz-y3e" secondAttribute="centerY" id="p4l-yn-a7n"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jcA-lZ-f1h">
+                                        <rect key="frame" x="16" y="233.99999809265137" width="343" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jcA-lZ-f1h" id="XM9-9o-eY6">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HLS for video/audio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXo-st-IHP">
+                                                    <rect key="frame" x="15" y="13" width="135" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZF-2F-hka">
+                                                    <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <color key="onTintColor" name="AccentColor"/>
+                                                    <connections>
+                                                        <action selector="switchYouTubeHLS:" destination="Gcj-HS-lZN" eventType="valueChanged" id="Obi-ET-yLE"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AZF-2F-hka" firstAttribute="trailing" secondItem="XM9-9o-eY6" secondAttribute="trailing" constant="-10" id="Xg3-9c-EbM"/>
+                                                <constraint firstItem="pXo-st-IHP" firstAttribute="centerY" secondItem="XM9-9o-eY6" secondAttribute="centerY" id="agk-cn-AE0"/>
+                                                <constraint firstItem="AZF-2F-hka" firstAttribute="centerY" secondItem="XM9-9o-eY6" secondAttribute="centerY" id="ntf-va-037"/>
+                                                <constraint firstItem="pXo-st-IHP" firstAttribute="leading" secondItem="XM9-9o-eY6" secondAttribute="leading" constant="15" id="ymP-M8-1no"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Twitter" id="6j6-N0-re8">
+                            <tableViewSection headerTitle="Twitter/X" id="6j6-N0-re8">
                                 <string key="footerTitle">Converting looping videos to .gif reduces quality and majorly increases file size. if you want best efficiency, keep this setting off</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FOg-OC-AGh">
-                                        <rect key="frame" x="16" y="453.33333587646484" width="343" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="705.33333206176758" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FOg-OC-AGh" id="WO6-mD-EdV">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
@@ -721,7 +761,7 @@ pick h264 if you want best compatibility</string>
                                                     <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
-                                                        <action selector="switchTwitter:" destination="Gcj-HS-lZN" eventType="valueChanged" id="DpQ-6s-Cfv"/>
+                                                        <action selector="switchTwitter:" destination="Gcj-HS-lZN" eventType="valueChanged" id="k1j-xB-5ck"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -738,14 +778,14 @@ pick h264 if you want best compatibility</string>
                             <tableViewSection headerTitle="TikTok" footerTitle="Download 1080p videos from tiktok in h265/hevc format when available" id="w6a-Nw-MmI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="onc-U5-8hN">
-                                        <rect key="frame" x="16" y="604.33333396911621" width="343" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="856.33333015441895" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onc-U5-8hN" id="B62-Fk-Oq3">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefer h265" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MZ-oO-4nv">
-                                                    <rect key="frame" x="15" y="13" width="81.666666666666671" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefer HECV/H265 format" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MZ-oO-4nv">
+                                                    <rect key="frame" x="15" y="13" width="177" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -754,7 +794,7 @@ pick h264 if you want best compatibility</string>
                                                     <rect key="frame" x="284" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
-                                                        <action selector="switchTikTok:" destination="Gcj-HS-lZN" eventType="valueChanged" id="ci9-Av-1XN"/>
+                                                        <action selector="switchTikTok:" destination="Gcj-HS-lZN" eventType="valueChanged" id="EYd-b4-SOi"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -777,9 +817,10 @@ pick h264 if you want best compatibility</string>
                     <navigationItem key="navigationItem" title="Video" largeTitleDisplayMode="always" id="8CD-vZ-ZaI"/>
                     <connections>
                         <outlet property="Quality" destination="EDb-SH-mAt" id="59Q-1s-6Qs"/>
-                        <outlet property="codecControll" destination="wAW-gh-Gbu" id="w5x-IC-0MW"/>
+                        <outlet property="codecButton" destination="mXf-NA-Xkr" id="Xb0-k9-WBb"/>
                         <outlet property="tiktok" destination="GEr-bG-QrL" id="jrT-YT-RBn"/>
                         <outlet property="twitter" destination="hts-eG-7lY" id="ZhE-JB-eRg"/>
+                        <outlet property="youtubeHLS" destination="AZF-2F-hka" id="f3S-so-Rzd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q9W-rf-vQN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -818,7 +859,6 @@ pick h264 if you want best compatibility</string>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="enterURLButtonTapped:" destination="rpE-AY-WFW" eventType="touchUpInside" id="aic-on-uq2"/>
-                                                        <action selector="presentActionSheet:" destination="Gcj-HS-lZN" eventType="touchUpInside" id="dcu-IM-sDe"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -856,7 +896,6 @@ pick h264 if you want best compatibility</string>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="authKeyButtonTapped:" destination="rpE-AY-WFW" eventType="touchUpInside" id="FpS-Hs-wbn"/>
-                                                        <action selector="presentActionSheet:" destination="Gcj-HS-lZN" eventType="touchUpInside" id="IgK-cA-1Wi"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -890,7 +929,6 @@ pick h264 if you want best compatibility</string>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="authTypeButtonTapped:" destination="rpE-AY-WFW" eventType="touchUpInside" id="baU-B3-Rqi"/>
-                                                        <action selector="presentActionSheet:" destination="Gcj-HS-lZN" eventType="touchUpInside" id="I5G-aA-Gtk"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -974,97 +1012,101 @@ pick h264 if you want best compatibility</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection headerTitle="Format" id="zid-CL-9e7">
-                                <string key="footerTitle">When "best" format is selected, you get audio the way it is on service's side. it's not re-encoded. everything else will be re-encoded</string>
+                                <string key="footerTitle">When "best" format is selected, you get audio the way it is on service's side. it's not re-encoded. everything else will be re-encoded
+
+Bitrate applies only to audio conversion. cobalt can't improve the source audio quality, so choosing a bitrate over 128kbps may inflate the file size with no audible difference. perceived quality may vary by format.</string>
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EuH-rr-aiq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="t5S-cT-pIM">
                                         <rect key="frame" x="16" y="55.333332061767578" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EuH-rr-aiq" id="Bu5-jD-hNL">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t5S-cT-pIM" id="jBG-xV-Xdg">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="VIt-JR-aDP">
-                                                    <rect key="frame" x="6.6666666666666572" y="6.3333333333333321" width="330" height="31.999999999999996"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="330" id="Vei-dS-f2S"/>
-                                                    </constraints>
-                                                    <segments>
-                                                        <segment title="best"/>
-                                                        <segment title="mp3"/>
-                                                        <segment title="ogg"/>
-                                                        <segment title="wav"/>
-                                                        <segment title="opus"/>
-                                                    </segments>
-                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio Format" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJm-PK-mda">
+                                                    <rect key="frame" x="15" y="13" width="92" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQl-19-Foi">
+                                                    <rect key="frame" x="259" y="6" width="74" height="32"/>
+                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="choose">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                    </buttonConfiguration>
+                                                </button>
                                             </subviews>
-                                            <color key="tintColor" name="AccentColor"/>
                                             <constraints>
-                                                <constraint firstItem="VIt-JR-aDP" firstAttribute="centerY" secondItem="Bu5-jD-hNL" secondAttribute="centerY" id="6pa-so-Fk3"/>
-                                                <constraint firstItem="VIt-JR-aDP" firstAttribute="centerX" secondItem="Bu5-jD-hNL" secondAttribute="centerX" id="jjD-og-pXz"/>
+                                                <constraint firstItem="hJm-PK-mda" firstAttribute="centerY" secondItem="jBG-xV-Xdg" secondAttribute="centerY" id="DK7-Jr-Zuh"/>
+                                                <constraint firstItem="zQl-19-Foi" firstAttribute="trailing" secondItem="jBG-xV-Xdg" secondAttribute="trailing" constant="-10" id="Moy-oA-6BJ"/>
+                                                <constraint firstItem="zQl-19-Foi" firstAttribute="centerY" secondItem="jBG-xV-Xdg" secondAttribute="centerY" id="ks7-oa-edc"/>
+                                                <constraint firstItem="hJm-PK-mda" firstAttribute="leading" secondItem="jBG-xV-Xdg" secondAttribute="leading" constant="15" id="nh1-ZQ-fiV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ymL-Uq-4Ko">
+                                        <rect key="frame" x="16" y="99" width="343" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ymL-Uq-4Ko" id="fZv-zl-jzW">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio Bitrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJb-pY-1yK">
+                                                    <rect key="frame" x="15" y="13" width="89" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paq-w5-nte">
+                                                    <rect key="frame" x="259" y="6" width="74" height="32"/>
+                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="choose">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="paq-w5-nte" firstAttribute="centerY" secondItem="fZv-zl-jzW" secondAttribute="centerY" id="KTn-Gx-Ro2"/>
+                                                <constraint firstItem="WJb-pY-1yK" firstAttribute="centerY" secondItem="fZv-zl-jzW" secondAttribute="centerY" id="LnQ-1g-DBZ"/>
+                                                <constraint firstItem="paq-w5-nte" firstAttribute="trailing" secondItem="fZv-zl-jzW" secondAttribute="trailing" constant="-10" id="kpE-kP-Bfg"/>
+                                                <constraint firstItem="WJb-pY-1yK" firstAttribute="leading" secondItem="fZv-zl-jzW" secondAttribute="leading" constant="15" id="v3i-OG-O4s"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Bitrate" id="4BP-sO-Vjh">
-                                <string key="footerTitle">Bitrate applies only to audio conversion. cobalt can't improve the source audio quality, so choosing a bitrate over 128kbps may inflate the file size with no audible difference. perceived quality may vary by format.</string>
+                            <tableViewSection headerTitle="Audio Download Mode" footerTitle="&quot;audio&quot; downloads only the audio, &quot;mute&quot; skips the audio track in videos." id="U2j-ZA-fvO">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6wR-0Y-tuO">
-                                        <rect key="frame" x="16" y="206.33332824707031" width="343" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kp1-AG-OGU">
+                                        <rect key="frame" x="16" y="346.00000381469727" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6wR-0Y-tuO" id="R3A-xU-wM1">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kp1-AG-OGU" id="tFS-TA-7nT">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-lD-by9">
-                                                    <rect key="frame" x="6.6666666666666572" y="6.3333333333333321" width="330" height="31.999999999999996"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="330" id="j5f-yD-0Bk"/>
-                                                    </constraints>
-                                                    <segments>
-                                                        <segment title="320kb"/>
-                                                        <segment title="256kb"/>
-                                                        <segment title="128kb"/>
-                                                        <segment title="96kb"/>
-                                                        <segment title="64kb"/>
-                                                        <segment title="8kb"/>
-                                                    </segments>
-                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6w-Sj-gNJ">
+                                                    <rect key="frame" x="15" y="13" width="111" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfJ-2y-Lmg">
+                                                    <rect key="frame" x="259" y="6" width="74" height="32"/>
+                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="choose">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                    </buttonConfiguration>
+                                                </button>
                                             </subviews>
-                                            <color key="tintColor" name="AccentColor"/>
                                             <constraints>
-                                                <constraint firstItem="Bd5-lD-by9" firstAttribute="centerY" secondItem="R3A-xU-wM1" secondAttribute="centerY" id="GlL-d5-3vW"/>
-                                                <constraint firstItem="Bd5-lD-by9" firstAttribute="centerX" secondItem="R3A-xU-wM1" secondAttribute="centerX" id="gyO-gh-NTM"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Download Mode" footerTitle="&quot;audio&quot; downloads only the audio, &quot;mute&quot; skips the audio track in videos." id="U2j-ZA-fvO">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NJS-AA-a4O">
-                                        <rect key="frame" x="16" y="389.33332633972168" width="343" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NJS-AA-a4O" id="d4Y-fO-8RO">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e2I-n9-IAT">
-                                                    <rect key="frame" x="6.6666666666666572" y="6.3333333333333321" width="330" height="31.999999999999996"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="330" id="Ut0-7s-h0j"/>
-                                                    </constraints>
-                                                    <segments>
-                                                        <segment title="auto"/>
-                                                        <segment title="audio"/>
-                                                        <segment title="mute"/>
-                                                    </segments>
-                                                </segmentedControl>
-                                            </subviews>
-                                            <color key="tintColor" name="AccentColor"/>
-                                            <constraints>
-                                                <constraint firstItem="e2I-n9-IAT" firstAttribute="centerY" secondItem="d4Y-fO-8RO" secondAttribute="centerY" id="8qW-Kx-fXs"/>
-                                                <constraint firstItem="e2I-n9-IAT" firstAttribute="centerX" secondItem="d4Y-fO-8RO" secondAttribute="centerX" id="9yy-ty-h1s"/>
+                                                <constraint firstItem="x6w-Sj-gNJ" firstAttribute="leading" secondItem="tFS-TA-7nT" secondAttribute="leading" constant="15" id="FJ6-j4-i6p"/>
+                                                <constraint firstItem="KfJ-2y-Lmg" firstAttribute="trailing" secondItem="tFS-TA-7nT" secondAttribute="trailing" constant="-10" id="afH-eS-7BX"/>
+                                                <constraint firstItem="KfJ-2y-Lmg" firstAttribute="centerY" secondItem="tFS-TA-7nT" secondAttribute="centerY" id="iyr-V1-mph"/>
+                                                <constraint firstItem="x6w-Sj-gNJ" firstAttribute="centerY" secondItem="tFS-TA-7nT" secondAttribute="centerY" id="lqy-zl-QgV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1073,7 +1115,7 @@ pick h264 if you want best compatibility</string>
                             <tableViewSection headerTitle="TikTok" footerTitle="Downloads original sound used in the video without any additional changes by the post's author." id="mgf-E1-j8f">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IjC-6h-9bW">
-                                        <rect key="frame" x="16" y="524.33332633972168" width="343" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="481.00000381469727" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IjC-6h-9bW" id="bl4-EX-3rn">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
@@ -1111,9 +1153,9 @@ pick h264 if you want best compatibility</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="Audio" largeTitleDisplayMode="always" id="ou2-cT-Np2"/>
                     <connections>
-                        <outlet property="bitrateControll" destination="Bd5-lD-by9" id="8cF-MQ-DIh"/>
-                        <outlet property="downloadModeControll" destination="e2I-n9-IAT" id="OCz-Su-VXY"/>
-                        <outlet property="formatControll" destination="VIt-JR-aDP" id="eaS-YW-McD"/>
+                        <outlet property="bitrateButton" destination="paq-w5-nte" id="qOa-Jx-Jut"/>
+                        <outlet property="downloadModeButton" destination="KfJ-2y-Lmg" id="q4H-GW-kJh"/>
+                        <outlet property="formatButton" destination="zQl-19-Foi" id="SuW-f4-JXE"/>
                         <outlet property="fullaudio" destination="2la-pD-Qvr" id="dLF-Tx-41J"/>
                     </connections>
                 </tableViewController>
