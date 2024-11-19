@@ -28,6 +28,7 @@
 		135C0FB02C10E18300177744 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C0FAF2C10E18300177744 /* URLOpener.swift */; };
 		1369A3C32C08ACE700C7E7B7 /* Save-Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369A3C22C08ACE700C7E7B7 /* Save-Debug.swift */; };
 		1369A3C52C08AD7800C7E7B7 /* PlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369A3C42C08AD7800C7E7B7 /* PlayerExtension.swift */; };
+		13921AAB2CECF19300588F61 /* onBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13921AAA2CECF19300588F61 /* onBoarding.swift */; };
 		13AF1CD52CA4462A0082D4FD /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AF1CD42CA4462A0082D4FD /* PickerViewController.swift */; };
 		13AF1CD72CA44AE40082D4FD /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AF1CD62CA44AE40082D4FD /* ImageSaver.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		135C0FAF2C10E18300177744 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
 		1369A3C22C08ACE700C7E7B7 /* Save-Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Save-Debug.swift"; sourceTree = "<group>"; };
 		1369A3C42C08AD7800C7E7B7 /* PlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerExtension.swift; sourceTree = "<group>"; };
+		13921AAA2CECF19300588F61 /* onBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoarding.swift; sourceTree = "<group>"; };
 		13AF1CD42CA4462A0082D4FD /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		13AF1CD62CA44AE40082D4FD /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 				13177F522C07546D00E4CECA /* Player */,
 				13177F482C0645ED00E4CECA /* Settings */,
 				135C0FA92C10E0D300177744 /* Functions */,
+				13921AAA2CECF19300588F61 /* onBoarding.swift */,
 				13177F362C0645A900E4CECA /* ViewController.swift */,
 				13177F322C0645A900E4CECA /* AppDelegate.swift */,
 				13177F342C0645A900E4CECA /* SceneDelegate.swift */,
@@ -296,6 +299,7 @@
 				131B94622CA48FF700D21DFC /* MediaPickerCell.swift in Sources */,
 				13177F4E2C0645FF00E4CECA /* Other.swift in Sources */,
 				135C0FAB2C10E0E300177744 /* Request.swift in Sources */,
+				13921AAB2CECF19300588F61 /* onBoarding.swift in Sources */,
 				13177F352C0645A900E4CECA /* SceneDelegate.swift in Sources */,
 				13134C2F2C13694F00123CB1 /* Saving.swift in Sources */,
 				13AF1CD72CA44AE40082D4FD /* ImageSaver.swift in Sources */,

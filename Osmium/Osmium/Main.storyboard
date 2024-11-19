@@ -27,13 +27,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save what you love" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fag-SC-Ao6" userLabel="save what you love">
-                                <rect key="frame" x="10" y="95.666666666666671" width="153.66666666666666" height="21.333333333333329"/>
+                                <rect key="frame" x="10" y="90.666666666666671" width="153.66666666666666" height="21.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" keyboardDismissMode="interactive" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3XZ-nk-U5Y" userLabel="Console">
-                                <rect key="frame" x="27.666666666666657" y="147" width="320" height="300"/>
+                                <rect key="frame" x="27.666666666666657" y="142" width="320" height="300"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="PTJ-sP-Uxu"/>
@@ -44,7 +44,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRo-fP-cjh" userLabel="trash">
-                                <rect key="frame" x="167.66666666666666" y="452" width="40" height="34"/>
+                                <rect key="frame" x="167.66666666666666" y="447" width="40" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="MLd-cA-ecL"/>
                                 </constraints>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="insert media url" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujk-pq-NEM" userLabel="url field">
-                                <rect key="frame" x="37.666666666666657" y="546" width="300" height="40"/>
+                                <rect key="frame" x="37.666666666666657" y="541" width="300" height="40"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
@@ -69,7 +69,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pR-dD-w1f">
-                                <rect key="frame" x="87.666666666666686" y="606" width="200" height="40"/>
+                                <rect key="frame" x="87.666666666666686" y="601" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xxv-Nd-cLd"/>
                                     <constraint firstAttribute="width" constant="200" id="qc0-RG-w5Z" userLabel="width = 150"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9a-kz-7AX" userLabel="size-download">
-                                <rect key="frame" x="187.66666666666666" y="666" width="0.0" height="0.0"/>
+                                <rect key="frame" x="187.66666666666666" y="661" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -104,7 +104,7 @@
                             <constraint firstItem="y9a-kz-7AX" firstAttribute="top" secondItem="2pR-dD-w1f" secondAttribute="bottom" constant="20" id="Q6b-y8-5A5"/>
                             <constraint firstItem="ujk-pq-NEM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uvq-tG-IH8"/>
                             <constraint firstItem="fag-SC-Ao6" firstAttribute="leading" secondItem="cvw-wg-h52" secondAttribute="leading" id="XUx-rS-qjG"/>
-                            <constraint firstItem="fag-SC-Ao6" firstAttribute="top" secondItem="cvw-wg-h52" secondAttribute="bottom" id="Ze6-Fy-Lfq"/>
+                            <constraint firstItem="fag-SC-Ao6" firstAttribute="top" secondItem="cvw-wg-h52" secondAttribute="bottom" constant="-5" id="Ze6-Fy-Lfq"/>
                             <constraint firstItem="3XZ-nk-U5Y" firstAttribute="top" secondItem="fag-SC-Ao6" secondAttribute="bottom" constant="30" id="a67-j9-Qrw"/>
                             <constraint firstItem="2pR-dD-w1f" firstAttribute="top" secondItem="ujk-pq-NEM" secondAttribute="bottom" constant="20" id="feB-kx-hb4"/>
                             <constraint firstItem="cvw-wg-h52" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="hwa-HB-c8x"/>
@@ -626,7 +626,7 @@ You should have received a copy of the GNU Affero General Public License along w
         <scene sceneID="vgp-PU-9kR">
             <objects>
                 <tableViewController id="Gcj-HS-lZN" customClass="Video" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="GeN-zm-wSH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="GeN-zm-wSH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
@@ -831,7 +831,7 @@ this option is experimental, it may go away or change in the future.</mutableStr
         <scene sceneID="IGu-Ru-84b">
             <objects>
                 <tableViewController id="rpE-AY-WFW" customClass="Instance" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="97b-Is-zxR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="97b-Is-zxR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
@@ -1007,7 +1007,7 @@ this option is experimental, it may go away or change in the future.</mutableStr
         <scene sceneID="Mdp-p5-bPc">
             <objects>
                 <tableViewController id="3cW-d9-Glb" customClass="Audio" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="mRg-NF-1ta">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="mRg-NF-1ta">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
@@ -1167,7 +1167,7 @@ Bitrate applies only to audio conversion. cobalt can't improve the source audio 
         <scene sceneID="2nV-ds-6M7">
             <objects>
                 <tableViewController id="iGg-G0-nBa" customClass="Saving" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="QvI-5G-Grm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="QvI-5G-Grm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
@@ -1303,7 +1303,7 @@ Note that this process will be longer based on the size of the media.</string>
         <scene sceneID="kCg-5M-9vy">
             <objects>
                 <tableViewController id="ANd-qe-f6M" customClass="Other" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="gca-wg-rrv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="gca-wg-rrv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
