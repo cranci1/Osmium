@@ -13,6 +13,7 @@ class OnboardingViewController: UIViewController {
         let title: String
         let description: String
         let backgroundColor: UIColor
+        let showServices: Bool
     }
     
     private let scrollView: UIScrollView = {
@@ -42,24 +43,36 @@ class OnboardingViewController: UIViewController {
         return button
     }()
     
+    private let services = [
+        "YouTube", "Instagram",
+        "TikTok", "Facebook",
+        "Twitter", "Reddit",
+        "Twitch", "Pinterest",
+        "SoundCloud", "Vimeo",
+        "Snapchat", "BlueSky",
+    ]
+    
     private let pages: [OnboardingPage] = [
         .init(
             icon: UIImage(systemName: "hand.wave"),
-            title: "Welcom to Osmium",
+            title: "Welcome to Osmium",
             description: "Easily download content from various online platforms, thanks to the Cobalt API.",
-            backgroundColor: .systemBackground
+            backgroundColor: .systemBackground,
+            showServices: false
         ),
         .init(
             icon: UIImage(systemName: "arrow.down.app.fill"),
             title: "Multiple Platform Support",
-            description: "Seamless downloads from different content sources.",
-            backgroundColor: .systemBackground
+            description: "Download content from all your favorite platforms:",
+            backgroundColor: .systemBackground,
+            showServices: true
         ),
         .init(
             icon: UIImage(systemName: "network"),
             title: "In-app Streaming",
-            description: "Stream you just downloaded content with the incorporated media player.",
-            backgroundColor: .systemBackground
+            description: "Stream your just downloaded content with the incorporated media player.",
+            backgroundColor: .systemBackground,
+            showServices: false
         )
     ]
     
@@ -98,6 +111,16 @@ class OnboardingViewController: UIViewController {
         ])
     }
     
+    private func createServiceLabel(_ text: String) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = text
+        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.textColor = .systemOrange
+        label.textAlignment = .center
+        return label
+    }
+    
     private func setupPages() {
         for (index, page) in pages.enumerated() {
             let pageView = UIView(frame: .zero)
@@ -125,9 +148,8 @@ class OnboardingViewController: UIViewController {
             pageView.addSubview(iconImageView)
             pageView.addSubview(titleLabel)
             pageView.addSubview(descriptionLabel)
-            scrollView.addSubview(pageView)
             
-            NSLayoutConstraint.activate([
+            var constraints = [
                 pageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
                 pageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
                 pageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
@@ -145,7 +167,48 @@ class OnboardingViewController: UIViewController {
                 descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
                 descriptionLabel.leadingAnchor.constraint(equalTo: pageView.leadingAnchor, constant: 20),
                 descriptionLabel.trailingAnchor.constraint(equalTo: pageView.trailingAnchor, constant: -20)
-            ])
+            ]
+            
+            if page.showServices {
+                let servicesContainer = UIStackView()
+                servicesContainer.translatesAutoresizingMaskIntoConstraints = false
+                servicesContainer.axis = .horizontal
+                servicesContainer.distribution = .fillEqually
+                servicesContainer.spacing = 20
+                pageView.addSubview(servicesContainer)
+                
+                let leftColumn = UIStackView()
+                leftColumn.axis = .vertical
+                leftColumn.spacing = 12
+                leftColumn.distribution = .fillEqually
+                
+                let rightColumn = UIStackView()
+                rightColumn.axis = .vertical
+                rightColumn.spacing = 12
+                rightColumn.distribution = .fillEqually
+                
+                for (index, service) in services.enumerated() {
+                    let serviceLabel = createServiceLabel(service)
+                    if index % 2 == 0 {
+                        leftColumn.addArrangedSubview(serviceLabel)
+                    } else {
+                        rightColumn.addArrangedSubview(serviceLabel)
+                    }
+                }
+                
+                servicesContainer.addArrangedSubview(leftColumn)
+                servicesContainer.addArrangedSubview(rightColumn)
+                
+                constraints.append(contentsOf: [
+                    servicesContainer.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+                    servicesContainer.leadingAnchor.constraint(equalTo: pageView.leadingAnchor, constant: 40),
+                    servicesContainer.trailingAnchor.constraint(equalTo: pageView.trailingAnchor, constant: -40),
+                    servicesContainer.heightAnchor.constraint(lessThanOrEqualTo: pageView.heightAnchor, multiplier: 0.4)
+                ])
+            }
+            
+            scrollView.addSubview(pageView)
+            NSLayoutConstraint.activate(constraints)
         }
         
         scrollView.contentSize = CGSize(width: view.bounds.width * CGFloat(pages.count), height: scrollView.bounds.height)
@@ -157,8 +220,9 @@ class OnboardingViewController: UIViewController {
         if currentPage < pages.count - 1 {
             let nextPage = currentPage + 1
             let offset = CGPoint(x: CGFloat(nextPage) * scrollView.bounds.width, y: 0)
-            scrollView.setContentOffset(offset, animated: true)
-            pageControl.currentPage = nextPage
+            
+            self.scrollView.setContentOffset(offset, animated: false)
+            self.pageControl.currentPage = nextPage
             
             if nextPage == pages.count - 1 {
                 continueButton.setTitle("Finish", for: .normal)
