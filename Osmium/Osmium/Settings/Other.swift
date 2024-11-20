@@ -8,9 +8,8 @@
 import UIKit
 
 class Other: UITableViewController {
-
     @IBOutlet weak var AppearanceControll: UISegmentedControl!
-    @IBOutlet weak var FileNameControll: UISegmentedControl!
+    @IBOutlet weak var FileNameButton: UIButton!
     @IBOutlet weak var metadata: UISwitch!
     @IBOutlet weak var debug: UISwitch!
 
@@ -24,12 +23,39 @@ class Other: UITableViewController {
         AppearanceControll.selectedSegmentIndex = selectedIndexAppearance
         
         let selectedIndexNameFormat = UserDefaults.standard.integer(forKey: "selectedIndexNameFormat")
-        FileNameControll.selectedSegmentIndex = selectedIndexNameFormat
+        configureFileNameMenu(selectedIndex: selectedIndexNameFormat)
 
         AppearanceControll.addTarget(self, action: #selector(appearanceControlValueChanged(_:)), for: .valueChanged)
-        FileNameControll.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         
         setAppAppearance()
+    }
+
+    func configureFileNameMenu(selectedIndex: Int) {
+        let filenameStyles = [
+            ("Classic", "classic"),
+            ("Basic", "basic"),
+            ("Pretty", "pretty"),
+            ("Nerdy", "nerdy")
+        ]
+
+        let menuChildren = filenameStyles.enumerated().map { (index, style) in
+            UIAction(title: style.0, state: index == selectedIndex ? .on : .off) { [weak self] _ in
+                self?.updateFilenameStyle(index: index, pattern: style.1)
+            }
+        }
+
+        let menu = UIMenu(title: "Filename Style", children: menuChildren)
+        FileNameButton.menu = menu
+        FileNameButton.showsMenuAsPrimaryAction = true
+        
+        FileNameButton.setTitle(filenameStyles[selectedIndex].0, for: .normal)
+    }
+
+    func updateFilenameStyle(index: Int, pattern: String) {
+        UserDefaults.standard.set(index, forKey: "selectedIndexNameFormat")
+        UserDefaults.standard.set(pattern, forKey: "filenameStyle")
+        
+        FileNameButton.setTitle(pattern.capitalized, for: .normal)
     }
 
     @IBAction func switchMeta(_ sender: UISwitch) {
@@ -40,27 +66,6 @@ class Other: UITableViewController {
         let isEnabled = sender.isOn
         UserDefaults.standard.set(isEnabled, forKey: "debugPlease")
         NotificationCenter.default.post(name: Notification.Name("dDebugPlease"), object: nil, userInfo: ["debugPlease": isEnabled])
-    }
-
-    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        let selectedIndexNameFormat = sender.selectedSegmentIndex
-        var filenamePattern: String
-
-        switch selectedIndexNameFormat {
-        case 0:
-            filenamePattern = "classic"
-        case 1:
-            filenamePattern = "basic"
-        case 2:
-            filenamePattern = "pretty"
-        case 3:
-            filenamePattern = "nerdy"
-        default:
-            filenamePattern = "classic"
-        }
-
-        UserDefaults.standard.set(selectedIndexNameFormat, forKey: "selectedIndexNameFormat")
-        UserDefaults.standard.set(filenamePattern, forKey: "filenameStyle")
     }
 
     @objc func appearanceControlValueChanged(_ sender: UISegmentedControl) {

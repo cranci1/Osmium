@@ -32,7 +32,7 @@ extension ViewController {
         
         func cleanVideoQuality(_ quality: String) -> String {
             switch quality {
-            case "8k+":
+            case "8k":
                 return "2160"
             case "4k":
                 return "1440"

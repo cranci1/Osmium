@@ -1349,39 +1349,42 @@ nerdy: title and all info in brackets
 
 Some services don’t support rich file names and always use the classic style</string>
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="D6D-ui-I04">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QAi-P9-LZb">
                                         <rect key="frame" x="16" y="162.33333015441895" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D6D-ui-I04" id="Uo8-TU-wt1">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QAi-P9-LZb" id="ioP-9y-pKB">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="101-Pz-d9T">
-                                                    <rect key="frame" x="21.666666666666657" y="6.3333333333333321" width="300" height="31.999999999999996"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="NL7-Cc-jec"/>
-                                                    </constraints>
-                                                    <segments>
-                                                        <segment title="classic"/>
-                                                        <segment title="basic"/>
-                                                        <segment title="pretty"/>
-                                                        <segment title="nerdy"/>
-                                                    </segments>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1q-i4-wTh">
+                                                    <rect key="frame" x="15" y="13" width="66" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REB-Qz-fzY">
+                                                    <rect key="frame" x="262.33333333333331" y="6" width="70.666666666666686" height="32"/>
                                                     <color key="tintColor" name="AccentColor"/>
-                                                </segmentedControl>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="classic">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                    </buttonConfiguration>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="101-Pz-d9T" firstAttribute="centerX" secondItem="Uo8-TU-wt1" secondAttribute="centerX" id="RYt-xM-akB"/>
-                                                <constraint firstItem="101-Pz-d9T" firstAttribute="centerY" secondItem="Uo8-TU-wt1" secondAttribute="centerY" id="TA1-ER-JF0"/>
+                                                <constraint firstItem="D1q-i4-wTh" firstAttribute="leading" secondItem="ioP-9y-pKB" secondAttribute="leading" constant="15" id="7ji-F5-RmH"/>
+                                                <constraint firstItem="REB-Qz-fzY" firstAttribute="trailing" secondItem="ioP-9y-pKB" secondAttribute="trailing" constant="-10" id="LcP-on-Wg2"/>
+                                                <constraint firstItem="D1q-i4-wTh" firstAttribute="centerY" secondItem="ioP-9y-pKB" secondAttribute="centerY" id="QbV-S9-hPu"/>
+                                                <constraint firstItem="REB-Qz-fzY" firstAttribute="centerY" secondItem="ioP-9y-pKB" secondAttribute="centerY" id="XJg-jS-MK2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Miscellaneous" id="GW3-ho-OTc">
+                            <tableViewSection headerTitle="Miscellaneous" footerTitle="title, artist, and other info will not be added to the file. Not all services support this feature." id="GW3-ho-OTc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="x2v-Xt-SRg">
-                                        <rect key="frame" x="16" y="418.00000381469727" width="343" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="425.33333587646484" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x2v-Xt-SRg" id="BOH-lq-7ht">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
@@ -1411,10 +1414,10 @@ Some services don’t support rich file names and always use the classic style</
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Developer" id="Z3D-5l-1AE">
+                            <tableViewSection headerTitle="Developer" footerTitle="Show debugging text in the console." id="Z3D-5l-1AE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Yv-o8-NHb">
-                                        <rect key="frame" x="16" y="517.66667175292969" width="343" height="43.666667938232422"/>
+                                        <rect key="frame" x="16" y="560.33333587646484" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Yv-o8-NHb" id="vKx-1j-BwA">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
@@ -1454,7 +1457,7 @@ Some services don’t support rich file names and always use the classic style</
                     <navigationItem key="navigationItem" title="Other" largeTitleDisplayMode="always" id="feS-1r-FOw"/>
                     <connections>
                         <outlet property="AppearanceControll" destination="6MB-b6-TpI" id="OIF-HL-Vp1"/>
-                        <outlet property="FileNameControll" destination="101-Pz-d9T" id="V8j-IA-IQl"/>
+                        <outlet property="FileNameButton" destination="REB-Qz-fzY" id="wag-FE-Dsg"/>
                         <outlet property="debug" destination="MnO-bt-Cr1" id="OvL-3D-N98"/>
                         <outlet property="metadata" destination="Ji7-GJ-pQW" id="Ykf-2j-1SA"/>
                     </connections>

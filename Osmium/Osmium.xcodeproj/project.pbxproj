@@ -173,8 +173,8 @@
 		135C0FA92C10E0D300177744 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				13134C1A2C123D2500123CB1 /* Utility */,
 				135C0FB12C10E22700177744 /* Request */,
+				13134C1A2C123D2500123CB1 /* Utility */,
 				135C0FAC2C10E16B00177744 /* Saving Method */,
 			);
 			path = Functions;

@@ -21,11 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupDefaultUserPreferences() {
         let defaultValues: [String: Any] = [
-            "videoQuality": "max",
+            "videoQuality": "720p",
             "youtubeVideoCodec": "h264",
             "twitterGif": true,
             "audioFormat": "mp3",
-            "audioBitrate": "128kb/s"
+            "audioBitrate": "128kb/s",
+            "filenameStyle": "classic",
+            "downloadMode": "auto"
         ]
         
         for (key, value) in defaultValues {
@@ -34,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
     
     func checkForFirstLaunch() {
         let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
