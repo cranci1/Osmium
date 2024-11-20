@@ -29,7 +29,7 @@ class Instance: UITableViewController {
         let alertController = UIAlertController(title: "Enter Instance URL", message: nil, preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
-            textField.placeholder = "http://localhost:9000"
+            textField.placeholder = "https://api.cobalt.tools"
         }
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
@@ -49,9 +49,9 @@ class Instance: UITableViewController {
     
     func updateURLLabel() {
         if let savedURL = UserDefaults.standard.string(forKey: "requestURL") {
-            urlLabel.text = "Current URL: \(savedURL)"
+            urlLabel.text = "Instance URL: \(savedURL)"
         } else {
-            urlLabel.text = "No URL is provided."
+            urlLabel.text = "No URL is provided"
         }
     }
     
@@ -78,31 +78,31 @@ class Instance: UITableViewController {
     
     func updateKeyLabel() {
         if let authKeyText = UserDefaults.standard.string(forKey: "authKey") {
-            keyLable.text = "Current Key: \(authKeyText)"
+            keyLable.text = "Auth Key: \(authKeyText)"
         } else {
-            keyLable.text = "No Key is provided."
+            keyLable.text = "No Key is provided"
         }
     }
 
     @IBAction func authTypeButtonTapped(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Select Auth Type", message: nil, preferredStyle: .actionSheet)
-        
-        let bearerAction = UIAlertAction(title: "Bearer", style: .default) { _ in
+        let bearerAction = UIAction(title: "Bearer") { _ in
             UserDefaults.standard.set("Bearer", forKey: "authType")
             self.autType.setTitle("Bearer", for: .normal)
         }
         
-        let apiKeyAction = UIAlertAction(title: "API-Key", style: .default) { _ in
+        let apiKeyAction = UIAction(title: "API-Key") { _ in
             UserDefaults.standard.set("API-Key", forKey: "authType")
             self.autType.setTitle("API-Key", for: .normal)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let noneAction = UIAction(title: "None") { _ in
+            UserDefaults.standard.removeObject(forKey: "authType")
+            self.autType.setTitle("select", for: .normal)
+        }
         
-        alertController.addAction(bearerAction)
-        alertController.addAction(apiKeyAction)
-        alertController.addAction(cancelAction)
+        let menu = UIMenu(title: "Select Auth Type", children: [bearerAction, apiKeyAction, noneAction])
         
-        present(alertController, animated: true, completion: nil)
+        autType.menu = menu
+        autType.showsMenuAsPrimaryAction = true
     }
 }

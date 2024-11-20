@@ -665,7 +665,7 @@ You should have received a copy of the GNU Affero General Public License along w
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="youtube" id="uPH-xq-cAH">
-                                <mutableString key="footerTitle">pick h264 if you want best compatibility.        
+                                <string key="footerTitle">pick h264 if you want best compatibility.        
         
 h264: best support across apps/platforms, average detail level. max quality is 1080p.      
 
@@ -678,7 +678,7 @@ HLS:
 
 files download faster and are less prone to errors or getting abruptly cut off. only h264 and vp9 codecs are available in this mode. original audio codec is aac, it's re-encoded for compatibility, audio quality may be slightly worse than the non-HLS counterpart.
 
-this option is experimental, it may go away or change in the future.</mutableString>
+this option is experimental, it may go away or change in the future.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="koB-4I-Rbg">
                                         <rect key="frame" x="16" y="190.33333015441895" width="343" height="43.666667938232422"/>
@@ -831,17 +831,18 @@ this option is experimental, it may go away or change in the future.</mutableStr
         <scene sceneID="IGu-Ru-84b">
             <objects>
                 <tableViewController id="rpE-AY-WFW" customClass="Instance" customModule="Osmium" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="97b-Is-zxR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="97b-Is-zxR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection id="Lba-bk-VUN">
+                                <string key="footerTitle">A custom instance URL is required to make Osmium work. This is because the main instance of the API is now protected by a Authentication requirment.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uI2-qn-Xaw">
-                                        <rect key="frame" x="16" y="18" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="18" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uI2-qn-Xaw" id="411-MA-qOh">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instance URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xM4-zr-BKQ">
@@ -872,13 +873,13 @@ this option is experimental, it may go away or change in the future.</mutableStr
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Authentication" footerTitle="The Key and Auth Type (bearer/Api-Key) is only required if the &quot;API_AUTH_REQUIRED&quot; is set to 1 on the instance settings" id="J9g-gC-dAi">
+                            <tableViewSection headerTitle="Authentication" footerTitle="The Key and Auth Type (bearer/Api-Key) is only required if the &quot;API_AUTH_REQUIRED&quot; is set to true on the instance settings" id="J9g-gC-dAi">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="b5v-tq-Ef4">
-                                        <rect key="frame" x="16" y="125.33333206176758" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="184.99999809265137" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b5v-tq-Ef4" id="v2Y-4R-xJV">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="API Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-K8-fSZ">
@@ -908,10 +909,10 @@ this option is experimental, it may go away or change in the future.</mutableStr
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DDs-xs-egv">
-                                        <rect key="frame" x="16" y="169.33333206176758" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="228.66666603088379" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DDs-xs-egv" id="kDY-lM-SuS">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authentication Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY7-w9-Xxm">
@@ -945,14 +946,14 @@ this option is experimental, it may go away or change in the future.</mutableStr
                             <tableViewSection headerTitle="Preview" id="lMo-ip-5VS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="V3U-dw-6Ks">
-                                        <rect key="frame" x="16" y="313.33333015441895" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="372.33333206176758" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V3U-dw-6Ks" id="Dj1-Fy-huv">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No URL is provided." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siT-Fo-v5f">
-                                                    <rect key="frame" x="15" y="14" width="120" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No URL is provided" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siT-Fo-v5f">
+                                                    <rect key="frame" x="15" y="14" width="117" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -965,14 +966,14 @@ this option is experimental, it may go away or change in the future.</mutableStr
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zhQ-V5-7cj">
-                                        <rect key="frame" x="16" y="357.33333015441895" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="416" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zhQ-V5-7cj" id="UPz-Zk-93m">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Key is provided." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lq-38-1CL">
-                                                    <rect key="frame" x="15" y="14.333333333333336" width="117" height="15.666666666666664"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Key is provided" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lq-38-1CL">
+                                                    <rect key="frame" x="14.999999999999993" y="14" width="113.33333333333331" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
