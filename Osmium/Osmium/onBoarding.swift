@@ -63,14 +63,21 @@ class OnboardingViewController: UIViewController {
         .init(
             icon: UIImage(systemName: "arrow.down.app.fill"),
             title: "Multiple Platform Support",
-            description: "Download content from all your favorite platforms:",
+            description: "Download content from all your favorite platforms seamlessly:",
             backgroundColor: .systemBackground,
             showServices: true
         ),
         .init(
-            icon: UIImage(systemName: "network"),
+            icon: UIImage(systemName: "play.tv.fill"),
             title: "In-app Streaming",
-            description: "Stream your just downloaded content with the incorporated media player.",
+            description: "Stream your just downloaded content with the integrated media player.",
+            backgroundColor: .systemBackground,
+            showServices: false
+        ),
+        .init(
+            icon: UIImage(systemName: "hand.raised"),
+            title: "Secure and Reliable",
+            description: "With Osmium, your data is secure. We prioritize privacy, ensuring all information stays on your device and through the API, nothing else.",
             backgroundColor: .systemBackground,
             showServices: false
         )
@@ -90,9 +97,7 @@ class OnboardingViewController: UIViewController {
         view.addSubview(continueButton)
         
         scrollView.delegate = self
-        
         pageControl.numberOfPages = pages.count
-        
         continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
@@ -224,9 +229,7 @@ class OnboardingViewController: UIViewController {
             self.scrollView.setContentOffset(offset, animated: false)
             self.pageControl.currentPage = nextPage
             
-            if nextPage == pages.count - 1 {
-                continueButton.setTitle("Finish", for: .normal)
-            }
+            continueButton.setTitle(nextPage == pages.count - 1 ? "Finish" : "Continue", for: .normal)
         } else {
             completeOnboarding()
         }
