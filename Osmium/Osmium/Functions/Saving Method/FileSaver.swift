@@ -86,7 +86,7 @@ extension ViewController: URLSessionDownloadDelegate {
     
     private func shareAndDeleteFile(at url: URL) {
         let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-        activityViewController.completionWithItemsHandler = { [weak self] (activityType, completed, returnedItems, error) in
+        activityViewController.completionWithItemsHandler = { [weak self] (_, _, _, error) in
             guard let self = self else { return }
             
             do {
