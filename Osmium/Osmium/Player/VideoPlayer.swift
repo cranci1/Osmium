@@ -81,7 +81,7 @@ class VideoPlayerViewController: UIViewController, AVPictureInPictureControllerD
     }
     
     private func handleAssetLoading(asset: AVURLAsset, key: String) {
-        var error: NSError? = nil
+        var error: NSError?
         let status = asset.statusOfValue(forKey: key, error: &error)
         
         switch status {
