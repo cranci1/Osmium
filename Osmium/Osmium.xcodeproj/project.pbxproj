@@ -28,6 +28,7 @@
 		135C0FB02C10E18300177744 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C0FAF2C10E18300177744 /* URLOpener.swift */; };
 		1369A3C32C08ACE700C7E7B7 /* Save-Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369A3C22C08ACE700C7E7B7 /* Save-Debug.swift */; };
 		1369A3C52C08AD7800C7E7B7 /* PlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369A3C42C08AD7800C7E7B7 /* PlayerExtension.swift */; };
+		137A57862DCCE4EE00CC1DD1 /* MediaSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A57852DCCE4EE00CC1DD1 /* MediaSaver.swift */; };
 		13921AAB2CECF19300588F61 /* onBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13921AAA2CECF19300588F61 /* onBoarding.swift */; };
 		13AF1CD52CA4462A0082D4FD /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AF1CD42CA4462A0082D4FD /* PickerViewController.swift */; };
 		13AF1CD72CA44AE40082D4FD /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AF1CD62CA44AE40082D4FD /* ImageSaver.swift */; };
@@ -70,6 +71,7 @@
 		135C0FAF2C10E18300177744 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
 		1369A3C22C08ACE700C7E7B7 /* Save-Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Save-Debug.swift"; sourceTree = "<group>"; };
 		1369A3C42C08AD7800C7E7B7 /* PlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerExtension.swift; sourceTree = "<group>"; };
+		137A57852DCCE4EE00CC1DD1 /* MediaSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSaver.swift; sourceTree = "<group>"; };
 		13921AAA2CECF19300588F61 /* onBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoarding.swift; sourceTree = "<group>"; };
 		13AF1CD42CA4462A0082D4FD /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		13AF1CD62CA44AE40082D4FD /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		135C0FAC2C10E16B00177744 /* Saving Method */ = {
 			isa = PBXGroup;
 			children = (
+				137A57852DCCE4EE00CC1DD1 /* MediaSaver.swift */,
 				13AF1CD62CA44AE40082D4FD /* ImageSaver.swift */,
 				135C0FAD2C10E17B00177744 /* FileSaver.swift */,
 				135C0FAF2C10E18300177744 /* URLOpener.swift */,
@@ -300,6 +303,7 @@
 				13177F4E2C0645FF00E4CECA /* Other.swift in Sources */,
 				135C0FAB2C10E0E300177744 /* Request.swift in Sources */,
 				13921AAB2CECF19300588F61 /* onBoarding.swift in Sources */,
+				137A57862DCCE4EE00CC1DD1 /* MediaSaver.swift in Sources */,
 				13177F352C0645A900E4CECA /* SceneDelegate.swift in Sources */,
 				13134C2F2C13694F00123CB1 /* Saving.swift in Sources */,
 				13AF1CD72CA44AE40082D4FD /* ImageSaver.swift in Sources */,

@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundCompletionHandler: (() -> Void)?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Theme setting is now done in SceneDelegate for scene-based apps.
         checkForFirstLaunch()
         setupDefaultUserPreferences()
         return true

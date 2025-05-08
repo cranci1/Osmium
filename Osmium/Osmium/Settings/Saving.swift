@@ -16,7 +16,6 @@ class Saving: UITableViewController {
         super.viewDidLoad()
         
         saveMedias.isOn = UserDefaults.standard.bool(forKey: "saveMedia")
-        
         shareMedia.isOn = UserDefaults.standard.bool(forKey: "shouldShareMedia")
     }
     
