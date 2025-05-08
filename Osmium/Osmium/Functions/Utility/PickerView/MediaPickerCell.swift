@@ -9,6 +9,8 @@ import UIKit
 
 class MediaPickerCell: UICollectionViewCell {
     static let reuseIdentifier = "MediaPickerCell"
+    private static let imageCache = NSCache<NSString, UIImage>()
+    private var currentImageURL: String?
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -98,45 +100,62 @@ class MediaPickerCell: UICollectionViewCell {
     
     func configure(with url: URL, isVideo: Bool) {
         self.isVideoMedia = isVideo
+        loadImage(from: url.absoluteString)
+    }
+    
+    func loadImage(from urlString: String) {
+        currentImageURL = urlString
+        
+        guard let url = URL(string: urlString) else {
+            showError()
+            return
+        }
+        
+        if let cachedImage = MediaPickerCell.imageCache.object(forKey: urlString as NSString) {
+            self.imageView.image = cachedImage
+            self.loadingIndicator.stopAnimating()
+            return
+        }
+        
         loadingIndicator.startAnimating()
-        imageView.image = nil
         
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            DispatchQueue.main.async {
-                self?.loadingIndicator.stopAnimating()
-            }
-            if let error = error {
-                print("Failed to load image: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self?.imageView.image = UIImage(systemName: "exclamationmark.triangle")
-                }
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
-                print("Invalid HTTP response: \(httpResponse.statusCode)")
-                DispatchQueue.main.async {
-                    self?.imageView.image = UIImage(systemName: "exclamationmark.triangle")
-                }
-                return
-            }
-            
-            guard let data = data, let image = UIImage(data: data) else {
-                print("Invalid image data")
-                DispatchQueue.main.async {
-                    self?.imageView.image = UIImage(systemName: "exclamationmark.triangle")
-                }
-                return
-            }
+            guard let self = self, self.currentImageURL == urlString else { return }
             
             DispatchQueue.main.async {
-                self?.imageView.image = image
-                self?.mediaTypeIcon.image = isVideo ? UIImage(systemName: "video.fill") : UIImage(systemName: "photo.fill")
+                self.loadingIndicator.stopAnimating()
+                
+                if let error = error {
+                    print("Failed to load image: \(error.localizedDescription)")
+                    self.showError()
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse,
+                      (200...299).contains(httpResponse.statusCode),
+                      let data = data,
+                      let image = UIImage(data: data) else {
+                    self.showError()
+                    return
+                }
+                
+                MediaPickerCell.imageCache.setObject(image, forKey: urlString as NSString)
+                self.imageView.image = image
             }
         }
         task.resume()
     }
-
+    
+    private func showError() {
+        imageView.image = UIImage(systemName: "exclamationmark.triangle")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        currentImageURL = nil
+        imageView.image = nil
+        loadingIndicator.stopAnimating()
+    }
     
     override var isSelected: Bool {
         didSet {
